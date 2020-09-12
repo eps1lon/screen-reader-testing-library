@@ -1,0 +1,23 @@
+{
+	"name": "nvda-snapshot-testing",
+	"version": "1.0.0",
+	"main": "index.js",
+	"license": "MIT",
+	"dependencies": {
+		"playwright": "^1.4.0"
+	},
+	"scripts": {
+		"format": "yarn format:base --write",
+		"format:base": "prettier \"**/*.{json,js,jsx,md,ts,tsx,yml}\"",
+		"format:check": "yarn format:base --check",
+		"test:types": "tsc -p tsconfig.json"
+	},
+	"devDependencies": {
+		"jest": "^26.4.2",
+		"prettier": "^2.1.1",
+		"typescript": "^4.0.2"
+	},
+	"prettier": {
+		"useTabs": true
+	}
+}

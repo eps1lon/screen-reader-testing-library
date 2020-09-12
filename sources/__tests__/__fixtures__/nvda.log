@@ -1,0 +1,167 @@
+INFO - __main__ (22:21:42.556) - MainThread (1248):
+Starting NVDA version 2019.3.1
+INFO - core.main (22:21:42.642) - MainThread (1248):
+Config dir: C:\Users\eps1lon\AppData\Roaming\nvda
+INFO - config.ConfigManager._loadConfig (22:21:42.642) - MainThread (1248):
+Loading config: C:\Users\eps1lon\AppData\Roaming\nvda\nvda.ini
+INFO - core.main (22:21:42.698) - MainThread (1248):
+Using Windows version 10.0.18363 workstation
+INFO - core.main (22:21:42.699) - MainThread (1248):
+Using Python version 3.7.5 (tags/v3.7.5:5c02a39a0b, Oct 14 2019, 23:09:19) [MSC v.1916 32 bit (Intel)]
+INFO - core.main (22:21:42.699) - MainThread (1248):
+Using comtypes version 1.1.7
+INFO - core.main (22:21:42.699) - MainThread (1248):
+Using configobj version 5.1.0 with validate version 1.0.1
+DEBUGWARNING - touchHandler.touchSupported (22:21:42.784) - MainThread (1248):
+No touch devices found
+INFO - synthDriverHandler.setSynth (22:21:43.034) - MainThread (1248):
+Loaded synthDriver sapi5
+INFO - core.main (22:21:43.034) - MainThread (1248):
+Using wx version 4.0.3 msw (phoenix) wxWidgets 3.0.5 with six version 1.12.0
+INFO - brailleInput.initialize (22:21:43.035) - MainThread (1248):
+Braille input initialized
+INFO - braille.initialize (22:21:43.036) - MainThread (1248):
+Using liblouis version 3.10.0
+INFO - braille.initialize (22:21:43.038) - MainThread (1248):
+Using pySerial version 3.4
+INFO - braille.BrailleHandler.setDisplayByName (22:21:43.041) - MainThread (1248):
+Loaded braille display driver noBraille, current display has 0 cells.
+INFO - core.main (22:21:43.177) - MainThread (1248):
+Java Access Bridge support initialized
+INFO - _UIAHandler.UIAHandler.MTAThreadFunc (22:21:43.186) - _UIAHandler.UIAHandler.MTAThread (13064):
+UIAutomation: IUIAutomation6
+DEBUGWARNING - inputCore.InputManager.loadLocaleGestureMap (22:21:43.308) - MainThread (1248):
+No locale gesture map for language en
+DEBUGWARNING - inputCore.InputManager.loadUserGestureMap (22:21:43.308) - MainThread (1248):
+No user gesture map
+DEBUGWARNING - touchHandler.touchSupported (22:21:43.319) - MainThread (1248):
+No touch devices found
+INFO - core.main (22:21:43.321) - MainThread (1248):
+NVDA initialized
+IO - speech.speak (22:21:43.349) - MainThread (1248):
+Speaking ['Command Prompt', 'terminal']
+DEBUGWARNING - characterProcessing._getSpeechSymbolsForLocale (22:21:43.350) - MainThread (1248):
+No CLDR data for locale en_US
+IO - inputCore.InputManager.executeGesture (22:21:43.375) - winInputHook (12336):
+Input: kb(desktop):upArrow
+IO - speech.speak (22:21:43.419) - MainThread (1248):
+Speaking ['C:\\Users\\eps1lon\\Development\\nvda-snapshot-testing>nvda.exe --log-file="C:\\Users\\eps1lon\\Development\\nvda-snapshot-testing\\nvda.log" --log-level=12                                                            ']
+DEBUGWARNING - Python warning (22:21:43.445) - MainThread (1248):
+C:\Program Files (x86)\NVDA\library.zip\keyboardHandler.py:538: DeprecationWarning: Yield() is deprecated
+DEBUGWARNING - Python warning (22:21:43.446) - MainThread (1248):
+C:\Program Files (x86)\NVDA\library.zip\api.py:287: DeprecationWarning: Yield() is deprecated
+IO - speech.speak (22:21:43.447) - MainThread (1248):
+Speaking ['C:\\Users\\eps1lon\\Development\\nvda-snapshot-testing>nvda -q                                                                                                                                                     ']
+IO - speech.speak (22:21:43.482) - MainThread (1248):
+Speaking ['C:\\Users\\eps1lon\\Development\\nvda-snapshot-testing>nvda -q                                                                                                                                                     ']
+IO - inputCore.InputManager.executeGesture (22:21:43.990) - winInputHook (12336):
+Input: kb(desktop):upArrow
+IO - speech.speak (22:21:44.040) - MainThread (1248):
+Speaking ['C:\\Users\\eps1lon\\Development\\nvda-snapshot-testing>node sources\\index.js "C:\\Users\\eps1lon\\Development\\nvda-snapshot-testing\\nvda.log"                                                                         ']
+IO - speech.speak (22:21:44.079) - MainThread (1248):
+Speaking ['C:\\Users\\eps1lon\\Development\\nvda-snapshot-testing>node sources\\index.js "C:\\Users\\eps1lon\\Development\\nvda-snapshot-testing\\nvda.log"                                                                         ']
+IO - inputCore.InputManager.executeGesture (22:21:44.398) - winInputHook (12336):
+Input: kb(desktop):enter
+IO - speech.speak (22:21:44.961) - MainThread (1248):
+Speaking ['about:blank - Chromium']
+IO - speech.speak (22:21:45.080) - MainThread (1248):
+Speaking ['Address and search bar', 'edit', 'has auto complete', 'Ctrl+L']
+DEBUGWARNING - NVDAObjects.IAccessible.IA2TextTextInfo._getFormatFieldAndOffsets (22:21:45.088) - MainThread (1248):
+could not get attributes
+Traceback (most recent call last):
+  File "NVDAObjects\IAccessible\__init__.pyc", line 233, in _getFormatFieldAndOffsets
+  File "comtypes\__init__.pyc", line 857, in __call__
+  File "comtypesMonkeyPatches.pyc", line 26, in __call__
+_ctypes.COMError: (-2147467263, 'Not implemented', (None, None, None, 0, None))
+IO - speech.speak (22:21:45.089) - MainThread (1248):
+Speaking ['about:blank']
+IO - speech.speak (22:21:46.119) - MainThread (1248):
+Speaking ['material-ui.com selected']
+DEBUGWARNING - NVDAObjects.IAccessible.IAccessible._get_IAccessibleRole (22:21:46.677) - MainThread (1248):
+accRole failed: (-2147024809, 'The parameter is incorrect.', (None, None, None, 0, None))
+DEBUGWARNING - NVDAObjects.IAccessible.IAccessible._get_IAccessibleRole (22:21:46.940) - MainThread (1248):
+accRole failed: (-2147024809, 'The parameter is incorrect.', (None, None, None, 0, None))
+IO - speech.speak (22:21:46.968) - MainThread (1248):
+Speaking ['Material-UI: A popular React UI framework']
+IO - speech.speak (22:21:46.971) - MainThread (1248):
+Speaking [<speech.commands.CallbackCommand object at 0x03A95250>, 'clickable', 'link', 'Skip to content']
+IO - speech.speak (22:21:46.985) - MainThread (1248):
+Speaking [<speech.commands.CallbackCommand object at 0x03A95CB0>, 'banner landmark', 'button', 'Open main navigation']
+IO - speech.speak (22:21:46.987) - MainThread (1248):
+Speaking [<speech.commands.CallbackCommand object at 0x03A950D0>, 'clickable', 'Search', 'combo box', 'collapsed', 'has auto complete', 'editable', 'Search…']
+IO - speech.speak (22:21:47.003) - MainThread (1248):
+Speaking [<speech.commands.CallbackCommand object at 0x03AC2F70>, 'menu button', 'subMenu', 'Change language']
+IO - speech.speak (22:21:47.005) - MainThread (1248):
+Speaking [<speech.commands.CallbackCommand object at 0x03A86FF0>, 'menu button', 'subMenu', 'Toggle notifications panel']
+IO - speech.speak (22:21:47.014) - MainThread (1248):
+Speaking [<speech.commands.CallbackCommand object at 0x03ACA950>, 'link', 'Edit website colors']
+IO - speech.speak (22:21:47.016) - MainThread (1248):
+Speaking [<speech.commands.CallbackCommand object at 0x03ACAEB0>, 'link', 'GitHub repository']
+IO - speech.speak (22:21:47.032) - MainThread (1248):
+Speaking [<speech.commands.CallbackCommand object at 0x03ACF790>, 'button', 'Toggle light/dark theme']
+IO - speech.speak (22:21:47.034) - MainThread (1248):
+Speaking [<speech.commands.CallbackCommand object at 0x03ACFF10>, 'button', 'Toggle right-to-left/left-to-right']
+IO - speech.speak (22:21:47.035) - MainThread (1248):
+Speaking [<speech.commands.CallbackCommand object at 0x03AD46D0>, 'main landmark', 'heading', 'level 1', 'MATERIAL-UI']
+DEBUGWARNING - NVDAObjects.IAccessible.IAccessible._get_IAccessibleRole (22:21:47.068) - MainThread (1248):
+accRole failed: (-2147024809, 'The parameter is incorrect.', (None, None, None, 0, None))
+IO - speech.speak (22:21:48.966) - MainThread (1248):
+Speaking ['banner landmark']
+IO - speech.speak (22:21:48.970) - MainThread (1248):
+Speaking ['Search', 'combo box', 'expanded', 'has auto complete', 'editable']
+IO - speech.speak (22:21:48.975) - MainThread (1248):
+Speaking ['Search…']
+IO - speech.speak (22:21:53.008) - MainThread (1248):
+Speaking ['Link to the result', '1 of 5']
+IO - speech.speak (22:21:55.374) - MainThread (1248):
+Speaking ['Command Prompt - node  sources\\index.js "C:\\Users\\eps1lon\\Development\\nvda-snapshot-testing\\nvda.log"', 'terminal']
+IO - speech.speak (22:21:55.376) - MainThread (1248):
+Speaking ['blank']
+IO - speech.speak (22:21:55.504) - MainThread (1248):
+Speaking ['C:\\Users\\eps1lon\\Development\\nvda-snapshot-testing>                                                                                                                                                            ']
+IO - speech.speak (22:22:00.799) - MainThread (1248):
+Speaking ['  [ "peaking [\'banner landmark\'" ],                                                                                                                                                                            ']
+IO - speech.speak (22:22:00.840) - MainThread (1248):
+Speaking ["Speaking ['Search…']                                                                                                                                                                                           "]
+IO - speech.speak (22:22:00.866) - MainThread (1248):
+Speaking ['"Speaking [\'Search…\']"                                                                                                                                                                                         ']
+IO - speech.speak (22:22:01.604) - MainThread (1248):
+Speaking ["    'expanded',                                                                                                                                                                                                "]
+IO - speech.speak (22:22:01.636) - MainThread (1248):
+Speaking ["    'combo box',                                                                                                                                                                                               "]
+IO - speech.speak (22:22:01.670) - MainThread (1248):
+Speaking ['    "peaking [\'Search",                                                                                                                                                                                        ']
+IO - speech.speak (22:22:01.700) - MainThread (1248):
+Speaking ['  [                                                                                                                                                                                                            ']
+IO - speech.speak (22:22:01.727) - MainThread (1248):
+Speaking ['  [ "peaking [\'banner landmark\'" ],                                                                                                                                                                            ']
+IO - inputCore.InputManager.executeGesture (22:22:02.056) - winInputHook (12336):
+Input: kb(desktop):upArrow
+IO - speech.speak (22:22:02.097) - MainThread (1248):
+Speaking ['C:\\Users\\eps1lon\\Development\\nvda-snapshot-testing>node sources\\index.js "C:\\Users\\eps1lon\\Development\\nvda-snapshot-testing\\nvda.log"                                                                         ']
+IO - speech.speak (22:22:02.146) - MainThread (1248):
+Speaking ['C:\\Users\\eps1lon\\Development\\nvda-snapshot-testing>node sources\\index.js "C:\\Users\\eps1lon\\Development\\nvda-snapshot-testing\\nvda.log"                                                                         ']
+IO - inputCore.InputManager.executeGesture (22:22:02.242) - winInputHook (12336):
+Input: kb(desktop):upArrow
+IO - speech.speak (22:22:02.283) - MainThread (1248):
+Speaking ['C:\\Users\\eps1lon\\Development\\nvda-snapshot-testing>nvda.exe --log-file="C:\\Users\\eps1lon\\Development\\nvda-snapshot-testing\\nvda.log" --log-level=12                                                            ']
+IO - speech.speak (22:22:02.335) - MainThread (1248):
+Speaking ['C:\\Users\\eps1lon\\Development\\nvda-snapshot-testing>nvda.exe --log-file="C:\\Users\\eps1lon\\Development\\nvda-snapshot-testing\\nvda.log" --log-level=12                                                            ']
+IO - inputCore.InputManager.executeGesture (22:22:02.527) - winInputHook (12336):
+Input: kb(desktop):upArrow
+IO - speech.speak (22:22:02.561) - MainThread (1248):
+Speaking ['C:\\Users\\eps1lon\\Development\\nvda-snapshot-testing>nvda -q                                                                                                                                                     ']
+IO - speech.speak (22:22:02.609) - MainThread (1248):
+Speaking ['C:\\Users\\eps1lon\\Development\\nvda-snapshot-testing>nvda -q                                                                                                                                                     ']
+IO - inputCore.InputManager.executeGesture (22:22:03.013) - winInputHook (12336):
+Input: kb(desktop):enter
+IO - speech.speak (22:22:03.071) - MainThread (1248):
+Speaking ['unavailable']
+IO - speech.speak (22:22:03.144) - MainThread (1248):
+Speaking ['C:\\Users\\eps1lon\\Development\\nvda-snapshot-testing>                                                                                                                                                            ']
+INFO - core.main (22:22:03.182) - MainThread (1248):
+Exiting
+INFO - config.ConfigManager.save (22:22:03.195) - MainThread (1248):
+Base configuration saved
+INFO - __main__ (22:22:04.322) - MainThread (1248):
+NVDA exit
