@@ -72,8 +72,14 @@ async function run(config) {
 		await page.keyboard.press("s");
 	}).toCreateSpeech([
 		["banner landmark"],
-		["Search", "combo box", "expanded", "has auto complete", "editable"],
-		["Search…"],
+		[
+			"Search",
+			"combo box",
+			"expanded",
+			"has auto complete",
+			"editable",
+			"Search…",
+		],
 	]);
 
 	await expect(async () => {
@@ -82,7 +88,7 @@ async function run(config) {
 
 	await expect(async () => {
 		await page.keyboard.press("ArrowDown");
-	}).toCreateSpeech([["Rating", "1 of 5"]]);
+	}).toCreateSpeech([["list"], ["Link to the result", "1 of 5"]]);
 }
 
 /**
