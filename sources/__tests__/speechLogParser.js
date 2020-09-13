@@ -48,19 +48,16 @@ it("can parse standard files", () => {
 		    "Material-UI: A popular React UI framework",
 		  ],
 		  Array [
-		    "speech.commands.CallbackCommand object at 0x03A95250",
 		    "clickable",
 		    "link",
 		    "Skip to content",
 		  ],
 		  Array [
-		    "speech.commands.CallbackCommand object at 0x03A95CB0",
 		    "banner landmark",
 		    "button",
 		    "Open main navigation",
 		  ],
 		  Array [
-		    "speech.commands.CallbackCommand object at 0x03A950D0",
 		    "clickable",
 		    "Search",
 		    "combo box",
@@ -70,39 +67,32 @@ it("can parse standard files", () => {
 		    "Search…",
 		  ],
 		  Array [
-		    "speech.commands.CallbackCommand object at 0x03AC2F70",
 		    "menu button",
 		    "subMenu",
 		    "Change language",
 		  ],
 		  Array [
-		    "speech.commands.CallbackCommand object at 0x03A86FF0",
 		    "menu button",
 		    "subMenu",
 		    "Toggle notifications panel",
 		  ],
 		  Array [
-		    "speech.commands.CallbackCommand object at 0x03ACA950",
 		    "link",
 		    "Edit website colors",
 		  ],
 		  Array [
-		    "speech.commands.CallbackCommand object at 0x03ACAEB0",
 		    "link",
 		    "GitHub repository",
 		  ],
 		  Array [
-		    "speech.commands.CallbackCommand object at 0x03ACF790",
 		    "button",
 		    "Toggle light/dark theme",
 		  ],
 		  Array [
-		    "speech.commands.CallbackCommand object at 0x03ACFF10",
 		    "button",
 		    "Toggle right-to-left/left-to-right",
 		  ],
 		  Array [
-		    "speech.commands.CallbackCommand object at 0x03AD46D0",
 		    "main landmark",
 		    "heading",
 		    "level 1",
@@ -132,61 +122,114 @@ it("can parse standard files", () => {
 		  Array [
 		    "blank",
 		  ],
+		]
+	`);
+});
+
+it("ignores commands", () => {
+	const speechLog = fs.readFileSync(
+		path.resolve(__dirname, "./__fixtures__/nvda-speech-with-commands.log"),
+		{ encoding: "utf8" }
+	);
+
+	expect(extractSpeechLines(speechLog)).toMatchInlineSnapshot(`
+		Array [
 		  Array [
-		    "C:\\\\\\\\Users\\\\\\\\eps1lon\\\\\\\\Development\\\\\\\\nvda-snapshot-testing>                                                                                                                                                            ",
+		    "Material-UI: A popular React UI framework",
 		  ],
 		  Array [
-		    "  [ \\"peaking [\\\\'banner landmark\\\\'",
+		    "clickable",
+		    "link",
+		    "Skip to content",
+		  ],
+		  Array [
+		    "banner landmark",
+		    "button",
+		    "Open main navigation",
+		  ],
+		  Array [
+		    "clickable",
+		    "Search",
+		    "combo box",
+		    "collapsed",
+		    "has auto complete",
+		    "editable",
+		    "Search…",
+		  ],
+		  Array [
+		    "menu button",
+		    "subMenu",
+		    "Change language",
+		  ],
+		  Array [
+		    "menu button",
+		    "subMenu",
+		    "Toggle notifications panel",
+		  ],
+		  Array [
+		    "link",
+		    "Edit website colors",
+		  ],
+		  Array [
+		    "link",
+		    "GitHub repository",
+		  ],
+		  Array [
+		    "button",
+		    "Toggle light/dark theme",
+		  ],
+		  Array [
+		    "button",
+		    "Toggle right-to-left/left-to-right",
+		  ],
+		  Array [
+		    "main landmark",
+		    "heading",
+		    "level 1",
+		    "MATERIAL-UI",
+		  ],
+		  Array [
+		    "banner landmark",
+		  ],
+		  Array [
+		    "Search",
+		    "combo box",
+		    "expanded",
+		    "has auto complete",
+		    "editable",
+		    "Search…",
+		  ],
+		  Array [
+		    "Too much output to announc",
 		    "",
 		  ],
 		  Array [
-		    "Speaking ['Search…'                                                                                                                                                                                           \\"",
+		    "nvda.ini (Working Tree) - nvda-snapshot-testing - Visual Studio Code",
 		  ],
 		  Array [
-		    "\\"Speaking [\\\\'Search…\\\\'\\"                                                                                                                                                                                         '",
+		    "nvda.ini (Working Tree) - nvda-snapshot-testing - Visual Studio Code",
+		    "document",
 		  ],
 		  Array [
-		    "    'expanded",
-		    "",
+		    "application",
 		  ],
 		  Array [
-		    "    'combo box",
-		    "",
+		    "complementary landmark",
 		  ],
 		  Array [
-		    "    \\"peaking [\\\\'Search",
-		    "",
+		    "Terminal ",
+		    "edit",
+		    "blank",
 		  ],
 		  Array [
-		    "  [                                                                                                                                                                                                            ",
+		    "nvda-old.log",
 		  ],
 		  Array [
-		    "  [ \\"peaking [\\\\'banner landmark\\\\'",
-		    "",
+		    "complementary landmark",
 		  ],
 		  Array [
-		    "C:\\\\\\\\Users\\\\\\\\eps1lon\\\\\\\\Development\\\\\\\\nvda-snapshot-testing>node sources\\\\\\\\index.js \\"C:\\\\\\\\Users\\\\\\\\eps1lon\\\\\\\\Development\\\\\\\\nvda-snapshot-testing\\\\\\\\nvda.log\\"                                                                         ",
-		  ],
-		  Array [
-		    "C:\\\\\\\\Users\\\\\\\\eps1lon\\\\\\\\Development\\\\\\\\nvda-snapshot-testing>node sources\\\\\\\\index.js \\"C:\\\\\\\\Users\\\\\\\\eps1lon\\\\\\\\Development\\\\\\\\nvda-snapshot-testing\\\\\\\\nvda.log\\"                                                                         ",
-		  ],
-		  Array [
-		    "C:\\\\\\\\Users\\\\\\\\eps1lon\\\\\\\\Development\\\\\\\\nvda-snapshot-testing>nvda.exe --log-file=\\"C:\\\\\\\\Users\\\\\\\\eps1lon\\\\\\\\Development\\\\\\\\nvda-snapshot-testing\\\\\\\\nvda.log\\" --log-level=12                                                            ",
-		  ],
-		  Array [
-		    "C:\\\\\\\\Users\\\\\\\\eps1lon\\\\\\\\Development\\\\\\\\nvda-snapshot-testing>nvda.exe --log-file=\\"C:\\\\\\\\Users\\\\\\\\eps1lon\\\\\\\\Development\\\\\\\\nvda-snapshot-testing\\\\\\\\nvda.log\\" --log-level=12                                                            ",
-		  ],
-		  Array [
-		    "C:\\\\\\\\Users\\\\\\\\eps1lon\\\\\\\\Development\\\\\\\\nvda-snapshot-testing>nvda -q                                                                                                                                                     ",
-		  ],
-		  Array [
-		    "C:\\\\\\\\Users\\\\\\\\eps1lon\\\\\\\\Development\\\\\\\\nvda-snapshot-testing>nvda -q                                                                                                                                                     ",
-		  ],
-		  Array [
-		    "unavailable",
-		  ],
-		  Array [
-		    "C:\\\\\\\\Users\\\\\\\\eps1lon\\\\\\\\Development\\\\\\\\nvda-snapshot-testing>                                                                                                                                                            ",
+		    "Files Explorer",
+		    "tree view",
 		  ],
 		]
 	`);

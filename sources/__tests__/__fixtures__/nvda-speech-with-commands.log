@@ -1,0 +1,110 @@
+INFO - __main__ (11:10:48.165) - MainThread (6636):
+Starting NVDA version 2020.2
+INFO - core.main (11:10:48.301) - MainThread (6636):
+Config dir: C:\Users\eps1lon\Development\nvda-snapshot-testing\sources\nvda-settings
+INFO - config.ConfigManager._loadConfig (11:10:48.302) - MainThread (6636):
+Loading config: C:\Users\eps1lon\Development\nvda-snapshot-testing\sources\nvda-settings\nvda.ini
+INFO - core.main (11:10:48.313) - MainThread (6636):
+Using Windows version 10.0.18363 workstation
+INFO - core.main (11:10:48.313) - MainThread (6636):
+Using Python version 3.7.8 (tags/v3.7.8:4b47a5b6ba, Jun 28 2020, 07:55:33) [MSC v.1916 32 bit (Intel)]
+INFO - core.main (11:10:48.313) - MainThread (6636):
+Using comtypes version 1.1.7
+INFO - core.main (11:10:48.313) - MainThread (6636):
+Using configobj version 5.1.0 with validate version 1.0.1
+DEBUGWARNING - touchHandler.touchSupported (11:10:48.403) - MainThread (6636):
+No touch devices found
+INFO - synthDriverHandler.setSynth (11:10:48.649) - MainThread (6636):
+Loaded synthDriver oneCore
+INFO - core.main (11:10:48.649) - MainThread (6636):
+Using wx version 4.0.3 msw (phoenix) wxWidgets 3.0.5 with six version 1.12.0
+INFO - brailleInput.initialize (11:10:48.651) - MainThread (6636):
+Braille input initialized
+INFO - braille.initialize (11:10:48.651) - MainThread (6636):
+Using liblouis version 3.14.0
+INFO - braille.initialize (11:10:48.654) - MainThread (6636):
+Using pySerial version 3.4
+INFO - braille.BrailleHandler.setDisplayByName (11:10:48.657) - MainThread (6636):
+Loaded braille display driver noBraille, current display has 0 cells.
+INFO - core.main (11:10:48.806) - MainThread (6636):
+Java Access Bridge support initialized
+INFO - _UIAHandler.UIAHandler.MTAThreadFunc (11:10:48.815) - _UIAHandler.UIAHandler.MTAThread (1440):
+UIAutomation: IUIAutomation6
+DEBUGWARNING - inputCore.InputManager.loadLocaleGestureMap (11:10:49.051) - MainThread (6636):
+No locale gesture map for language en
+DEBUGWARNING - inputCore.InputManager.loadUserGestureMap (11:10:49.051) - MainThread (6636):
+No user gesture map
+DEBUGWARNING - touchHandler.touchSupported (11:10:49.085) - MainThread (6636):
+No touch devices found
+INFO - core.main (11:10:49.087) - MainThread (6636):
+NVDA initialized
+ERROR - eventHandler.executeEvent (11:10:49.175) - MainThread (6636):
+error executing event: gainFocus on <NVDAObjects.Dynamic_EditableTextWithAutoSelectDetectionEditorIa2WebIAccessible object at 0x0357DA90> with extra args of {}
+Traceback (most recent call last):
+  File "speech\__init__.pyc", line 523, in getObjectSpeech
+  File "documentBase.pyc", line 24, in makeTextInfo
+  File "NVDAObjects\IAccessible\ia2TextMozilla.pyc", line 107, in __init__
+  File "NVDAObjects\IAccessible\ia2TextMozilla.pyc", line 166, in _getSelectionBase
+RuntimeError: No selection or caret
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "eventHandler.pyc", line 214, in executeEvent
+  File "eventHandler.pyc", line 94, in __init__
+  File "eventHandler.pyc", line 102, in next
+  File "NVDAObjects\behaviors.pyc", line 185, in event_gainFocus
+  File "NVDAObjects\__init__.pyc", line 1105, in event_gainFocus
+  File "NVDAObjects\__init__.pyc", line 991, in reportFocus
+  File "speech\__init__.pyc", line 478, in speakObject
+  File "speech\__init__.pyc", line 538, in getObjectSpeech
+  File "documentBase.pyc", line 24, in makeTextInfo
+  File "NVDAObjects\IAccessible\ia2TextMozilla.pyc", line 88, in __init__
+  File "NVDAObjects\IAccessible\ia2TextMozilla.pyc", line 205, in _findContentDescendant
+LookupError: Object has no text descendants
+IO - speech.speak (11:10:50.178) - MainThread (6636):
+Speaking [LangChangeCommand ('en_US'), 'Material-UI: A popular React UI framework']
+DEBUGWARNING - characterProcessing._getSpeechSymbolsForLocale (11:10:50.178) - MainThread (6636):
+No CLDR data for locale en_US
+IO - speech.speak (11:10:50.253) - MainThread (6636):
+Speaking [CallbackCommand(name=say-all:lineReached), LangChangeCommand ('en_US'), 'clickable', 'link', 'Skip to content', CallbackCommand(name=say-all:lineReached)]
+IO - speech.speak (11:10:50.265) - MainThread (6636):
+Speaking [LangChangeCommand ('en_US'), 'banner landmark', 'button', 'Open main navigation', CallbackCommand(name=say-all:lineReached)]
+IO - speech.speak (11:10:50.267) - MainThread (6636):
+Speaking [LangChangeCommand ('en_US'), 'clickable', 'Search', 'combo box', 'collapsed', 'has auto complete', 'editable', 'Search…', CallbackCommand(name=say-all:lineReached)]
+IO - speech.speak (11:10:50.274) - MainThread (6636):
+Speaking [LangChangeCommand ('en_US'), 'menu button', 'subMenu', 'Change language', CallbackCommand(name=say-all:lineReached)]
+IO - speech.speak (11:10:50.276) - MainThread (6636):
+Speaking [LangChangeCommand ('en_US'), 'menu button', 'subMenu', 'Toggle notifications panel', CallbackCommand(name=say-all:lineReached)]
+IO - speech.speak (11:10:50.287) - MainThread (6636):
+Speaking [LangChangeCommand ('en_US'), 'link', 'Edit website colors', CallbackCommand(name=say-all:lineReached)]
+IO - speech.speak (11:10:50.289) - MainThread (6636):
+Speaking [LangChangeCommand ('en_US'), 'link', 'GitHub repository', CallbackCommand(name=say-all:lineReached)]
+IO - speech.speak (11:10:50.302) - MainThread (6636):
+Speaking [LangChangeCommand ('en_US'), 'button', 'Toggle light/dark theme', CallbackCommand(name=say-all:lineReached)]
+IO - speech.speak (11:10:50.305) - MainThread (6636):
+Speaking [LangChangeCommand ('en_US'), 'button', 'Toggle right-to-left/left-to-right', CallbackCommand(name=say-all:lineReached)]
+IO - speech.speak (11:10:50.306) - MainThread (6636):
+Speaking [LangChangeCommand ('en_US'), 'main landmark', 'heading', 'level 1', 'MATERIAL-UI']
+IO - speech.speak (11:10:52.216) - MainThread (6636):
+Speaking [LangChangeCommand ('en_US'), 'banner landmark']
+IO - speech.speak (11:10:52.230) - MainThread (6636):
+Speaking [LangChangeCommand ('en_US'), 'Search', 'combo box', 'expanded', 'has auto complete', 'editable', 'Search…']
+IO - speech.speak (11:10:54.315) - MainThread (6636):
+Speaking [LangChangeCommand ('en_US'), 'Too much output to announce, navigate to rows manually to readteardown JestAssertionError: expect(received).toEqual(expected) // deep equality - Expected - 2 + Received + 2 Array [ Array [ + "angChangeCommand (\'en_US\'", "banner landmark", ], Array [ + "angChangeCommand (\'en_US\'", "Search", "combo box", "expanded", "has auto complete", "editable", - ], - Array [ "Search…", ']
+IO - speech.speak (11:10:54.356) - MainThread (6636):
+Speaking [LangChangeCommand ('en_US'), 'nvda.ini (Working Tree) - nvda-snapshot-testing - Visual Studio Code']
+IO - speech.speak (11:10:54.591) - MainThread (6636):
+Speaking [LangChangeCommand ('en_US'), 'nvda.ini (Working Tree) - nvda-snapshot-testing - Visual Studio Code', 'document']
+IO - speech.speak (11:10:54.594) - MainThread (6636):
+Speaking [LangChangeCommand ('en_US'), 'application']
+IO - speech.speak (11:10:54.608) - MainThread (6636):
+Speaking [LangChangeCommand ('en_US'), 'complementary landmark']
+IO - speech.speak (11:10:54.641) - MainThread (6636):
+Speaking [LangChangeCommand ('en_US'), 'Terminal 2, PowerShell Integrated Console', 'edit', 'blank']
+IO - speech.speak (11:11:03.410) - MainThread (6636):
+Speaking [LangChangeCommand ('en_US'), 'nvda-old.log']
+IO - speech.speak (11:11:03.744) - MainThread (6636):
+Speaking [LangChangeCommand ('en_US'), 'complementary landmark']
+IO - speech.speak (11:11:03.764) - MainThread (6636):
+Speaking [LangChangeCommand ('en_US'), 'Files Explorer', 'tree view']

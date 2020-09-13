@@ -10,8 +10,7 @@ Runs tests in a browsers and verifies that the speech output matches existing sn
 
 ## Getting started
 
-Open `cmd.exe`
-```bash
-$ $NVDA_HOME\nvda.exe --log-file=$LOG_FILE
-$ node sources/index.js $LOG_FILE
-```
+1. Open a PowerShell
+2. Make a copy of test.example.ps1
+3. Configure your copy. You find instructions inside the file.
+4. Execute your copy

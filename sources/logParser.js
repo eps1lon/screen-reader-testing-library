@@ -1,5 +1,6 @@
 /**
  * @param {string} nvdaLog
+ * @returns {string[][]}
  */
 function extractSpeechLines(nvdaLog) {
 	return nvdaLog
@@ -13,10 +14,23 @@ function extractSpeechLines(nvdaLog) {
 			const listText = line.trim().replace(/^Speaking \[([^\]]+)\]/, "$1");
 
 			// In: "['speech1', 'speech2', 'speech 3']"
-			// Out: the corresponding array structure in JS
-			return listText.split(",").map((quotedSpeech) => {
-				return quotedSpeech.trim().slice(1, -1);
-			});
+			// Out: the corresponding array structure in JS with added quotes
+			return listText
+				.split(",")
+				.map((rawSpeech) => {
+					const speech = rawSpeech.trim();
+					if (speech.startsWith("'")) {
+						return speech.slice(1, -1);
+					}
+					// ignore commands for now
+					return null;
+				})
+				.filter(
+					/**
+					 * @returns {speech is string}
+					 */
+					(speech) => speech !== null
+				);
 		});
 }
 
