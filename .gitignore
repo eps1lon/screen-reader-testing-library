@@ -1,4 +1,4 @@
 node_modules/
 /nvda.log
 /nvda-old.log
-/test.ps1
+test.ps1

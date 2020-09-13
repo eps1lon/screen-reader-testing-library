@@ -1,11 +1,6 @@
-/**
- * can't get module augmentation to work
- * @type {any}
- */
-const expect = require("expect");
 const fs = require("fs/promises");
-const path = require("path");
-const playwright = require("playwright");
+const { default: diff } = require("jest-diff");
+const { toMatchInlineSnapshot, toMatchSnapshot } = require("jest-snapshot");
 const { extractSpeechLines } = require("./logParser");
 
 /**
@@ -16,124 +11,137 @@ function sleep(timeoutMS) {
 	return new Promise((resolve) => setTimeout(() => resolve(), timeoutMS));
 }
 
+// need to wait for NVDA to flush the speech
+// It seems like it debounces the speech so that the user isn't flooded when quickly navigating
+function awaitNvdaRecording() {
+	return sleep(2000);
+}
+
 /**
- * @param {object} config
- * @param {import('playwright').Browser} config.browser
- * @param {string} config.logFilePath
+ * @param {string} logFilePath
  */
-async function run(config) {
-	const { browser, logFilePath } = config;
-	const context = await browser.newContext();
-	const page = await context.newPage();
-
-	function awaitNvdaRecording() {
-		return sleep(2000);
-	}
-
+function createSpeechRecorder(logFilePath) {
 	// Intuitively we keep an open handle and read new logs every time we call `readAllNewLogs`.
 	// However, once node read streams have reached the current! end calling read() again won't read anything that was newly written.
 	// We have to refresh the file.
 	// It's a bit heave on memory since we read the whole file into memory.
 	// Should be fine for most tests.
 	let logFileOffset = 0;
-	async function readAllNewLogs() {
+	async function stop() {
+		await awaitNvdaRecording();
+
 		const fullContent = await fs.readFile(logFilePath, { encoding: "utf-8" });
 		const newContent = fullContent.slice(logFileOffset);
 		logFileOffset = fullContent.length;
-		return newContent;
+
+		return extractSpeechLines(newContent);
 	}
 
-	expect.extend({
-		/**
-		 * @param {() => Promise<void>} fn
-		 * @param {string[]} expectedLines
-		 */
-		async toCreateSpeech(fn, expectedLines) {
-			// move to end
-			await readAllNewLogs();
-			await fn();
-			await awaitNvdaRecording();
-			const nvdaLog = await readAllNewLogs();
+	async function start() {
+		const logFile = await fs.stat(logFilePath);
+		logFileOffset = logFile.size;
+	}
 
-			const actualLines = extractSpeechLines(nvdaLog);
-			expect(actualLines).toEqual(expectedLines);
+	function readable() {
+		return fs.access(logFilePath);
+	}
 
-			return { pass: true };
-		},
-	});
-
-	await page.goto("https://material-ui.com/");
-	// Without bringing it to front the adress bar will still be focused.
-	// NVDA wouldn't record any page actions
-	await page.bringToFront();
-	await awaitNvdaRecording();
-
-	await expect(async () => {
-		await page.keyboard.press("s");
-	}).toCreateSpeech([
-		["banner landmark"],
-		[
-			"Search",
-			"combo box",
-			"expanded",
-			"has auto complete",
-			"editable",
-			"Search…",
-		],
-	]);
-
-	await expect(async () => {
-		await page.keyboard.type("Rating");
-	}).toCreateSpeech([]);
-
-	await expect(async () => {
-		await page.keyboard.press("ArrowDown");
-	}).toCreateSpeech([["list"], ["Link to the result", "1 of 5"]]);
+	return { readable, start, stop };
 }
 
 /**
- * @param {object} config
- * @param {"chromium" | "firefox" | "webkit"} config.browserType
+ * @param {string} logFilePath
  */
-async function setup(config) {
-	const { browserType } = config;
+async function createMatchers(logFilePath) {
+	const recorder = createSpeechRecorder(logFilePath);
 
-	const [browser] = await Promise.all([
-		playwright[browserType].launch({ headless: false }),
-	]);
+	/**
+	 *
+	 * @param {() => Promise<void>} fn
+	 * @param {string[][]} _expectedLines
+	 * @returns {Promise<ReturnType<typeof toMatchInlineSnapshot>>}
+	 * @this {import('jest-snapshot/build/types').Context}
+	 */
+	async function toMatchSpeechInlineSnapshot(fn, _expectedLines) {
+		// throws with "Jest: Multiple inline snapshots for the same call are not supported."
+		throw new Error("Not implemented");
+		// // move to end
+		// await recorder.start();
+		// await fn();
+		// const actualLines = await recorder.stop();
 
-	async function tearDown() {
-		console.log("teardown");
-		return Promise.allSettled([browser.close()]);
+		// return toMatchInlineSnapshot.call(this, actualLines);
 	}
 
-	return { browser: browser, tearDown };
-}
+	/**
+	 *
+	 * @param {() => Promise<void>} fn
+	 * @param {string[][]} _expectedLines
+	 * @returns {Promise<ReturnType<typeof toMatchSnapshot>>}
+	 * @this {import('jest-snapshot/build/types').Context}
+	 */
+	async function toMatchSpeechSnapshot(fn, _expectedLines) {
+		// move to end
+		await recorder.start();
+		await fn();
+		const actualLines = await recorder.stop();
 
-async function main() {
-	const browserType = "chromium";
-	const [logFilePath] = process.argv.slice(2);
-
-	if (typeof logFilePath !== "string") {
-		throw new TypeError("No path to logfile given!");
+		return toMatchSnapshot.call(this, actualLines, "toMatchSpeechSnapshot");
 	}
-	if (!path.isAbsolute(logFilePath)) {
-		throw new TypeError("The path to the logfile must be absolute!");
-	}
 
-	const { browser, tearDown } = await setup({
-		browserType,
-	});
+	/**
+	 * @param {() => Promise<void>} fn
+	 * @param {string[][]} expectedLines
+	 * @returns {Promise<{actual: unknown, message: () => string, pass: boolean}>}
+	 * @this {import('jest-snapshot/build/types').Context}
+	 */
+	async function toAnnounceNVDA(fn, expectedLines) {
+		// move to end
+		await recorder.start();
+		await fn();
+		const actualLines = await recorder.stop();
+
+		const options = {
+			comment: "deep equality",
+			isNot: this.isNot,
+			promise: this.promise,
+		};
+
+		const pass = this.equals(actualLines, expectedLines);
+		const message = pass
+			? () =>
+					this.utils.matcherHint("toBe", undefined, undefined, options) +
+					"\n\n" +
+					`Expected: not ${this.utils.printExpected(expectedLines)}\n` +
+					`Received: ${this.utils.printReceived(actualLines)}`
+			: () => {
+					const diffString = diff(expectedLines, actualLines, {
+						expand: this.expand,
+					});
+					return (
+						this.utils.matcherHint("toBe", undefined, undefined, options) +
+						"\n\n" +
+						(diffString && diffString.includes("- Expect")
+							? `Difference:\n\n${diffString}`
+							: `Expected: ${this.utils.printExpected(expectedLines)}\n` +
+							  `Received: ${this.utils.printReceived(actualLines)}`)
+					);
+			  };
+
+		return { actual: actualLines, message, pass };
+	}
 
 	try {
-		await run({ browser, logFilePath });
-		// await sleep(10000);
-	} finally {
-		tearDown();
+		await recorder.readable();
+	} catch (error) {
+		throw new Error(`Log file in '${logFilePath}' is not readable`);
 	}
+
+	return { toAnnounceNVDA, toMatchSpeechInlineSnapshot, toMatchSpeechSnapshot };
 }
 
-main().catch((error) => {
-	console.error(error);
-	process.exit(error.code || 1);
-});
+module.exports = {
+	awaitNvdaRecording,
+	createSpeechRecorder,
+	createMatchers,
+};
