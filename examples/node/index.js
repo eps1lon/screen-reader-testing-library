@@ -36,7 +36,7 @@ async function run(config) {
 		},
 	});
 
-	await page.goto("https://material-ui.com/");
+	await page.goto("https://5f6a0f0de73ecc00085cbbe4--material-ui.netlify.app/");
 	// Without bringing it to front the adress bar will still be focused.
 	// NVDA wouldn't record any page actions
 	await page.bringToFront();
