@@ -1,0 +1,17 @@
+{
+	"name": "nvda-testing-library",
+	"version": "0.1.0",
+	"license": "MIT",
+	"dependencies": {
+		"jest-diff": "^26.4.2",
+		"jest-snapshot": "^26.4.2"
+	},
+	"engines": {
+		"node": "^14.10.1"
+	},
+	"author": {
+		"name": "Sebastian Silbermann",
+		"email": "silbermann.sebastian@gmail.com",
+		"url": "https://solverfox.dev"
+	}
+}

@@ -1,6 +1,6 @@
 # NVDA snapshot testing
 
-This is the initial prototype for this project.
+An example using jest as a test runner.
 
 ## Installation
 

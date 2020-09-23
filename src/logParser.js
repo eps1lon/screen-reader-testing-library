@@ -10,7 +10,7 @@ function extractSpeechLines(nvdaLog) {
 		})
 		.map((line) => {
 			// In: "Speaking ['speech1', 'speech2', 'speech 3']"
-			// Out: "['speech1', 'speech2', 'speech 3']""
+			// Out: "['speech1', 'speech2', 'speech 3']"
 			const listText = line.trim().replace(/^Speaking \[([^\]]+)\]/, "$1");
 
 			// In: "['speech1', 'speech2', 'speech 3']"

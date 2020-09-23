@@ -5,6 +5,6 @@ $REPO_PATH = "C:\Users\eps1lon\Development\nvda-snapshot-testing"
 
 # End of configuration. Changing anything below at your own risk
 $Env:LOG_FILE_PATH = "$REPO_PATH\nvda.log"
-& $NVDA_BIN --log-file=$Env:LOG_FILE_PATH --config-path=$REPO_PATH\sources\nvda-settings
+& $NVDA_BIN --log-file=$Env:LOG_FILE_PATH --config-path=$REPO_PATH\src\nvda-settings
 yarn jest -c $REPO_PATH\examples\jest\jest.config.js
 nvda -q

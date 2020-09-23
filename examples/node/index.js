@@ -5,7 +5,7 @@
 const expect = require("expect");
 const path = require("path");
 const playwright = require("playwright");
-const { awaitNvdaRecording, createSpeechRecorder } = require("../../sources");
+const { awaitNvdaRecording, createSpeechRecorder } = require("../../src");
 
 /**
  * @param {object} config
