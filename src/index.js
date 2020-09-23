@@ -76,17 +76,17 @@ async function createMatchers(logFilePath) {
 	/**
 	 *
 	 * @param {() => Promise<void>} fn
-	 * @param {string[][]} _expectedLines
+	 * @param {string} [snapshotName]
 	 * @returns {Promise<ReturnType<typeof toMatchSnapshot>>}
 	 * @this {import('jest-snapshot/build/types').Context}
 	 */
-	async function toMatchSpeechSnapshot(fn, _expectedLines) {
+	async function toMatchSpeechSnapshot(fn, snapshotName) {
 		// move to end
 		await recorder.start();
 		await fn();
 		const actualLines = await recorder.stop();
 
-		return toMatchSnapshot.call(this, actualLines, "toMatchSpeechSnapshot");
+		return toMatchSnapshot.call(this, actualLines, snapshotName);
 	}
 
 	/**

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`chromium matches the NVDA speech snapshot when searching the docs: toMatchSpeechSnapshot 1`] = `
+exports[`chromium matches the NVDA speech snapshot when searching the docs: Focused searchbox 1`] = `
 Array [
   Array [
     "banner landmark",
@@ -16,9 +16,9 @@ Array [
 ]
 `;
 
-exports[`chromium matches the NVDA speech snapshot when searching the docs: toMatchSpeechSnapshot 2`] = `Array []`;
+exports[`chromium matches the NVDA speech snapshot when searching the docs: entered searchterm 1`] = `Array []`;
 
-exports[`chromium matches the NVDA speech snapshot when searching the docs: toMatchSpeechSnapshot 3`] = `
+exports[`chromium matches the NVDA speech snapshot when searching the docs: navigated to first result 1`] = `
 Array [
   Array [
     "list",
