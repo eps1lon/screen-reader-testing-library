@@ -26,7 +26,6 @@ describe("chromium", () => {
 
 		expect.extend({ ...(await createMatchers(logFilePath)) });
 		browser = await playwright.chromium.launch({ headless: false });
-		page = await browser.newPage();
 	});
 
 	afterAll(async () => {
@@ -38,14 +37,13 @@ describe("chromium", () => {
 	});
 
 	afterEach(async () => {
-		// Closing the page results in different behavior for subsequent tests.
-		// For some reason NVDA is focusing the language change dropdown when reloading the page.
-		// Not closing pages and opening new ones works though.
-		// await page.close();
+		await page.close();
 	});
 
 	it("produces the expected NVDA speech output when searching the docs", async () => {
-		await page.goto("https://5f6a0f0de73ecc00085cbbe4--material-ui.netlify.app/");
+		await page.goto(
+			"https://5f6a0f0de73ecc00085cbbe4--material-ui.netlify.app/"
+		);
 		// Without bringing it to front the adress bar will still be focused.
 		// NVDA wouldn't record any page actions
 		await page.bringToFront();
@@ -75,7 +73,12 @@ describe("chromium", () => {
 	}, 20000);
 
 	it("matches the NVDA speech snapshot when searching the docs", async () => {
-		await page.goto("https://5f6a0f0de73ecc00085cbbe4--material-ui.netlify.app/");
+		// Opening a new page with the same URL would trigger NVDA's focus caching.
+		// https://stackoverflow.com/questions/22517242/how-to-prevent-nvda-setting-focus-automatically-on-last-used-html-element
+		// We keep tests isolated by adding a random string to the URL that does not affect the page.
+		await page.goto(
+			"https://5f6a0f0de73ecc00085cbbe4--material-ui.netlify.app/?nvda-test-2"
+		);
 		// Without bringing it to front the adress bar will still be focused.
 		// NVDA wouldn't record any page actions
 		await page.bringToFront();
