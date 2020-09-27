@@ -1,0 +1,198 @@
+﻿#locale/ro/symbols.dic
+#A part of NonVisual Desktop Access (NVDA)
+#Copyright (c) 2011-2017 NVDA Contributors
+#This file is covered by the GNU General Public License.
+
+complexSymbols:
+# identifier	regexp
+# Sentence endings.
+. sentence ending	(?<=[^\s.])\.(?=[\"'”’)\s]|$)
+! sentence ending	(?<=[^\s!])\!(?=[\"'”’)\s]|$)
+? sentence ending	(?<=[^\s?])\?(?=[\"'”’)\s]|$)
+# Phrase endings.
+; phrase ending	(?<=[^\s;]);(?=\s|$)
+: phrase ending	(?<=[^\s:]):(?=\s|$)
+# Others
+decimal point	(?<![^\d -])\,(?=\d)
+in-word '	(?<=[^\W_])['’]
+in-word -	(?<=[^\W_])[-]
+negative number	(?<!\w)-(?=[ $£€¥.]?\d)
+
+symbols:
+# identifier	replacement[[	level][	preserve]][	# display name]
+
+# Complex symbols
+. sentence ending	punct	all	always	# . sfârșit de propoziție
+! sentence ending	semnul exclamării	# ! sfârșit de propoziție
+? sentence ending	semnul întrebării	all	always	# ? sfârșit de propoziție
+; phrase ending	punct și virgulă	# ; sfârșit de propoziție
+: phrase ending	două puncte	most	always	# : sfârșit de propoziție
+decimal point		# virgulă pentru zecimale
+in-word '	apostrof	# ' în cuvânt
+in-word -	cratimă	all	norep	# - de compunere cuvinte
+negative number	minus	none	norep	# - înaintea unei cifre
+
+# Whitespace
+\0	nul	# caracterul vid
+\t	tabulator
+\n	linie nouă
+\f	întrerupere pagină
+\r	linie nouă
+ 	spațiu
+ 	spațiu	# spațiu incasabil
+
+# Standard punctuation/symbols
+!	semnul exclamării
+"	ghilimele
+\#	diez
+$	dolar
+£	liră sterlină
+€	euro
+¢	cent
+¥	yen
+₹	rupie
+₽	rublă
+%	procent
+&	ampersand
+'	apostrof
+(	paranteză rotundă deschisă
+)	paranteză rotundă închisă
+*	asterisc
++	plus
+,	virgulă
+-	cratimă
+‑	cratimă de unire
+.	punct
+·	punct central
+/	bară oblică
+:	două puncte
+;	punct și virgulă
+<	mai mic
+>	mai mare
+=	egal
+?	semnul întrebării
+@	a rond
+[	paranteză pătrată deschisă
+]	paranteză pătrată închisă
+\\	bară oblică inversă
+^	circumflex
+_	liniuță joasă
+`	accent grav
+{	acoladă deschisă
+}	acoladă închisă
+|	bară verticală
+~	tildă
+
+# Other characters
+•	bulină
+…	puncte de suspensie
+...	punct punct punct
+“	ghilimele inverse închise
+”	ghilimele închise	some
+‘	apostrof deschis
+’	apostrof închis
+–	cratimă dublă
+—	linie de dialog
+●	cerc negru
+¨	tremă
+‎	marcaj de la stânga la dreapta
+‏	marcaj de la dreapta la stânga
+■	pătrat mare negru
+▪	pătrat mic negru
+◾	pătrat negru
+◦	bulină albă
+⇒	săgeată dreapta dublă
+⇨	săgeată dreapta albă
+➢	Vârf de Săgeată spre dreapta
+❖	x alb înconjurat de diamant negru
+♣	Carte de joc, cruce neagră
+♦	Diamant negru
+§	secțiune
+°	grade
+«	ghilimele unghiulare deschise	some
+»	ghilimele unghiulare închise	some
+µ	micro
+¹	superscript 1
+²	superscript 2
+³	superscript 3
+®	marcă înregistrată
+™	marcă neînregistrată
+©	drepturi de autor
+±	plus sau minus
+×	înmulțit
+÷	împărțit
+←	săgeată stânga
+↑	săgeată sus
+→	săgeată dreapta
+↓	săgeată jos
+✓	bifat
+✔	bifat
+„	ghilimele deschise	some
+🡺	săgeată dreapta
+
+#Mathematical Operators U+2200 to U+220F
+
+∀	oricare ar fi
+∁	Complement
+∂	derivată parțială
+∃	există
+∄	nu există
+∅	mulțimea vidă
+∆	increment
+∇	nabla
+∈	aparține lui
+∉	nu aparține lui
+∊	aparține mic
+∋	conține ca element pe
+∌	nu conține ca element pe
+∍	conține ca element pe mic
+∎	q e d
+∏	produs
+
+# Miscellaneous Mathematical Operators
+
+∑	sumă
+√	radical
+∛	radical de ordin trei
+∜	radical de ordin patru
+∝	proporțional cu
+∞	infinit
+∟	unghi drept
+∠	unghi
+∥	paralel cu
+∦	nu e paralel cu
+∧	și logic
+∨	sau logic
+∩	intersecție
+∪	reuniune
+∫	integrală
+∴	în consecință
+∵	deoarece
+∶	rație
+∷	proporțional
+≤	mai mic sau egal cu
+≥	mai mare sau egal cu
+⊂	submulțime a lui
+⊃	superset a lui
+⊆	submulțime sau egală cu
+⊇	superset sau egal cu
+
+# Vulgur Fractions U+2150 to U+215E
+⅐	o șeptime	none
+⅑	o noime	none
+⅒	o zecime	none
+⅓	o treime	none
+⅔	două treimi	none
+⅕	o cincime	none
+⅖	două cincimi	none
+⅗	trei cincimi	none
+⅘	patru cincimi	none
+⅙	o șesime	none
+⅚	cinci șesimi	none
+⅛	o optime	none
+⅜	trei optimi	none
+⅝	cinci optimi	none
+⅞	șapte optimi	none
+
+# Miscellaneous Technical
+⌘	tastă de comandă Mac	none
