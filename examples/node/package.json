@@ -2,7 +2,7 @@
 	"name": "example-node",
 	"version": "1.0.0",
 	"dependencies": {
-		"nvda-testing-library": "^0.1.0",
-		"playwright": "^1.4.0"
+		"playwright": "^1.4.0",
+		"screen-reader-testing-library": "^0.1.0"
 	}
 }

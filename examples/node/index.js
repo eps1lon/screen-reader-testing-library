@@ -5,7 +5,10 @@
 const expect = require("expect");
 const path = require("path");
 const playwright = require("playwright");
-const { awaitNvdaRecording, createSpeechRecorder } = require("../../src");
+const {
+	awaitNvdaRecording,
+	createSpeechRecorder,
+} = require("screen-reader-testing-library");
 
 /**
  * @param {object} config

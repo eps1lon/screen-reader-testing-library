@@ -7,9 +7,8 @@
 		"@babel/preset-typescript": "^7.10.4",
 		"@types/jest": "^26.0.13",
 		"jest": "^26.4.2",
-		"nvda-testing-library": "^0.1.0",
 		"playwright": "^1.4.0",
-		"prettier": "^2.1.1",
+		"screen-reader-testing-library": "^0.1.0",
 		"typescript": "^4.0.2"
 	}
 }

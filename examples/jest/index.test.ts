@@ -1,5 +1,8 @@
 import * as playwright from "playwright";
-import { awaitNvdaRecording, createMatchers } from "../../src";
+import {
+	awaitNvdaRecording,
+	createMatchers,
+} from "screen-reader-testing-library";
 
 const logFilePath = process.env.LOG_FILE_PATH;
 

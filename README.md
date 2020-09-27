@@ -1,6 +1,7 @@
-# NVDA snapshot testing
+# Screen Reader Testing Library
 
-Utilities to match the speech output of NVDA when replaying user interactions.
+Utilities to match the speech output of screen readers when replaying user interactions.
+Currently only [NVDA](https://www.nvaccess.org/) is supported.
 
 ## Getting started
 
