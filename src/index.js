@@ -63,7 +63,7 @@ function createSpeechRecorder(logFilePath) {
 /**
  * @param {string} logFilePath
  */
-async function createMatchers(logFilePath) {
+function createMatchers(logFilePath) {
 	const recorder = createSpeechRecorder(logFilePath);
 
 	/**
@@ -134,12 +134,6 @@ async function createMatchers(logFilePath) {
 			  };
 
 		return { actual: actualLines, message, pass };
-	}
-
-	try {
-		await recorder.readable();
-	} catch (error) {
-		throw new Error(`Log file in '${logFilePath}' is not readable`);
 	}
 
 	return { toAnnounceNVDA, toMatchSpeechInlineSnapshot, toMatchSpeechSnapshot };

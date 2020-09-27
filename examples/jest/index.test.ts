@@ -6,14 +6,13 @@ import {
 } from "screen-reader-testing-library";
 
 const logFilePath = process.env.LOG_FILE_PATH;
+expect.extend(createMatchers(logFilePath!));
 
 declare global {
 	namespace jest {
 		interface Matchers<R> {
 			toAnnounceNVDA(expectedLines: string[][]): Promise<void>;
 			toMatchSpeechSnapshot(snapshotName?: string): Promise<void>;
-			// throws with "Jest: Multiple inline snapshots for the same call are not supported."
-			// toMatchSpeechInlineSnapshot(expectedLines: string[][]): R;
 		}
 	}
 }
@@ -24,13 +23,6 @@ describe("chromium", () => {
 	let browser: playwright.Browser;
 	let page: playwright.Page;
 	beforeAll(async () => {
-		if (logFilePath === undefined) {
-			throw new TypeError(
-				"Log filepath not specified. Set the path in an environment variable named `LOG_FILE_PATH`."
-			);
-		}
-
-		expect.extend({ ...(await createMatchers(logFilePath)) });
 		browser = await playwright.chromium.launch({ headless: false });
 	});
 
