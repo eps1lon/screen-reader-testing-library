@@ -22,6 +22,7 @@ jobs:
           node-version: 14
       - run: yarn
       - run: yarn format:check
+      - run: yarn test:types
       - run: yarn test
 
   examples:
