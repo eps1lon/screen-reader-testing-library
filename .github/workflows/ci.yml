@@ -46,5 +46,7 @@ jobs:
           & $NVDA_BIN -q
         env:
           REPO_PATH: ${{ github.workspace }}
-          NVDA_VENDOR: ${{ env.REPO_PATH }}\vendor\nvda-2020.2
-          NVDA_BIN: ${{ env.NVDA_VENDOR }}\nvda.exe
+          # NVDA_VENDOR: ${{ env.REPO_PATH }}\vendor\nvda-2020.2
+          NVDA_VENDOR: ${{ github.workspace }}\vendor\nvda-2020.2
+          # NVDA_BIN: ${{ env.NVDA_VENDOR }}\nvda.exe
+          NVDA_BIN: ${{ github.workspace }}\vendor\nvda-2020.2\nvda.exe
