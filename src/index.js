@@ -42,11 +42,22 @@ function createSpeechRecorder(logFilePath) {
 		logFileOffset = logFile.size;
 	}
 
+	/**
+	 * @param {() => Promise<void>} fn
+	 * @returns {Promise<string[][]>}
+	 */
+	async function recordLines(fn) {
+		// move to end
+		await start();
+		await fn();
+		return await stop();
+	}
+
 	function readable() {
 		return fs.access(logFilePath);
 	}
 
-	return { readable, start, stop };
+	return { readable, recordLines, start, stop };
 }
 
 /**
@@ -81,10 +92,7 @@ async function createMatchers(logFilePath) {
 	 * @this {import('jest-snapshot/build/types').Context}
 	 */
 	async function toMatchSpeechSnapshot(fn, snapshotName) {
-		// move to end
-		await recorder.start();
-		await fn();
-		const actualLines = await recorder.stop();
+		const actualLines = await recorder.recordLines(fn);
 
 		return toMatchSnapshot.call(this, actualLines, snapshotName);
 	}
@@ -96,10 +104,7 @@ async function createMatchers(logFilePath) {
 	 * @this {import('jest-snapshot/build/types').Context}
 	 */
 	async function toAnnounceNVDA(fn, expectedLines) {
-		// move to end
-		await recorder.start();
-		await fn();
-		const actualLines = await recorder.stop();
+		const actualLines = await recorder.recordLines(fn);
 
 		const options = {
 			comment: "deep equality",
