@@ -25,19 +25,6 @@ jobs:
       - run: yarn format:check
       - run: yarn test:types
       - run: yarn test:ci
-
-  examples:
-    needs: [test]
-    runs-on: windows-latest
-
-    steps:
-      - uses: actions/checkout@v2
-      - name: Use node@14
-        uses: actions/setup-node@v1
-        with:
-          node-version: 14
-      - uses: microsoft/playwright-github-action@v1
-      - run: yarn
       - name: "node"
         # examples/node/test.example.ps1 as a GitHub workflow `run` task
         run: |
