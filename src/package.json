@@ -9,6 +9,11 @@
 	"engines": {
 		"node": "^14.10.1"
 	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/eps1lon/screen-reader-testing-library.git",
+		"directory": "src"
+	},
 	"author": {
 		"name": "Sebastian Silbermann",
 		"email": "silbermann.sebastian@gmail.com",
