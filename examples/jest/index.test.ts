@@ -2,6 +2,7 @@ import * as playwright from "playwright";
 import {
 	awaitNvdaRecording,
 	createMatchers,
+	createJestSpeechRecorder,
 } from "screen-reader-testing-library";
 
 const logFilePath = process.env.LOG_FILE_PATH;
@@ -18,6 +19,8 @@ declare global {
 }
 
 describe("chromium", () => {
+	const speechRecorder = createJestSpeechRecorder(logFilePath!);
+
 	let browser: playwright.Browser;
 	let page: playwright.Page;
 	beforeAll(async () => {
@@ -42,6 +45,61 @@ describe("chromium", () => {
 	afterEach(async () => {
 		await page.close();
 	});
+
+	it("matches the NVDA speech inline snapshot when searching the docs", async () => {
+		// Opening a new page with the same URL would trigger NVDA's focus caching.
+		// https://stackoverflow.com/questions/22517242/how-to-prevent-nvda-setting-focus-automatically-on-last-used-html-element
+		// We keep tests isolated by adding a random string to the URL that does not affect the page.
+		await page.goto(
+			"https://5f6a0f0de73ecc00085cbbe4--material-ui.netlify.app/?nvda-test-3"
+		);
+		// Without bringing it to front the adress bar will still be focused.
+		// NVDA wouldn't record any page actions
+		await page.bringToFront();
+		await awaitNvdaRecording();
+
+		expect(
+			await speechRecorder.recordLines(async () => {
+				await page.keyboard.press("s");
+			})
+		).toMatchInlineSnapshot(`
+		Array [
+		  Array [
+		    "banner landmark",
+		  ],
+		  Array [
+		    "Search",
+		    "combo box",
+		    "expanded",
+		    "has auto complete",
+		    "editable",
+		    "Search…",
+		  ],
+		]
+	`);
+
+		expect(
+			await speechRecorder.recordLines(async () => {
+				await page.keyboard.type("Rating");
+			})
+		).toMatchInlineSnapshot(`Array []`);
+
+		expect(
+			await speechRecorder.recordLines(async () => {
+				await page.keyboard.press("ArrowDown");
+			})
+		).toMatchInlineSnapshot(`
+		Array [
+		  Array [
+		    "list",
+		  ],
+		  Array [
+		    "Link to the result",
+		    "1 of 5",
+		  ],
+		]
+	`);
+	}, 20000);
 
 	it("matches the NVDA speech snapshot when searching the docs", async () => {
 		// Opening a new page with the same URL would trigger NVDA's focus caching.

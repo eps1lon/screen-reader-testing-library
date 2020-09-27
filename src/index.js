@@ -145,8 +145,26 @@ async function createMatchers(logFilePath) {
 	return { toAnnounceNVDA, toMatchSpeechInlineSnapshot, toMatchSpeechSnapshot };
 }
 
+/**
+ * @param {string} logFilePath
+ */
+function createJestSpeechRecorder(logFilePath) {
+	const recorder = createSpeechRecorder(logFilePath);
+
+	beforeAll(async () => {
+		try {
+			await recorder.readable();
+		} catch (error) {
+			throw new Error(`Log file in '${logFilePath}' is not readable`);
+		}
+	});
+
+	return recorder;
+}
+
 module.exports = {
 	awaitNvdaRecording,
 	createSpeechRecorder,
 	createMatchers,
+	createJestSpeechRecorder,
 };
