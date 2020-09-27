@@ -20,10 +20,11 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 14
+      - uses: microsoft/playwright-github-action@v1
       - run: yarn
       - run: yarn format:check
       - run: yarn test:types
-      - run: yarn test
+      - run: yarn test:ci
 
   examples:
     needs: [test]
@@ -35,6 +36,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 14
+      - uses: microsoft/playwright-github-action@v1
       - run: yarn
       - name: "node"
         # examples/node/test.example.ps1 as a GitHub workflow `run` task
