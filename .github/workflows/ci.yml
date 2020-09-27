@@ -37,3 +37,8 @@ jobs:
           NVDA_VENDOR: ${{ github.workspace }}\vendor\nvda-2020.2
           # NVDA_BIN: ${{ env.NVDA_VENDOR }}\portable\nvda.exe
           NVDA_BIN: ${{ github.workspace }}\vendor\nvda-2020.2\portable\nvda.exe
+      - uses: actions/upload-artifact@v2
+        if: ${{ always() }}
+        with:
+          name: nvda.log
+          path: nvda.log
