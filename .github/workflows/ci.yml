@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+defaults:
+  run:
+    shell: powershell
+
+jobs:
+  test:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use node@14
+      uses: actions/setup-node@v1
+      with:
+        node-version: 14
+    - run: yarn
+    - run: yarn format:check
+    - run: yarn test
+
+  examples:
+    needs: [test]
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use node@14
+      uses: actions/setup-node@v1
+      with:
+        node-version: 14
+    - run: yarn
+    - name: "node"
+      # examples/node/test.example.ps1 as a GitHub workflow `run` task
+      run: |
+        & $NVDA_BIN --log-file=$REPO_PATH\nvda.log --config-path=$NVDA_VENDOR\settings
+        node $REPO_PATH\examples\node\index.js $REPO_PATH\\nvda.log
+        & $NVDA_BIN -q
+      env:
+        REPO_PATH: ${{ github.workspace }}
+        NVDA_VENDOR: ${{ env.REPO_PATH }}\vendor\nvda-2020.2
+        NVDA_BIN: ${{ env.NVDA_VENDOR }}\nvda.exe
