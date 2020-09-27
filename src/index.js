@@ -58,19 +58,16 @@ async function createMatchers(logFilePath) {
 	/**
 	 *
 	 * @param {() => Promise<void>} fn
-	 * @param {string[][]} _expectedLines
 	 * @returns {Promise<ReturnType<typeof toMatchInlineSnapshot>>}
 	 * @this {import('jest-snapshot/build/types').Context}
 	 */
-	async function toMatchSpeechInlineSnapshot(fn, _expectedLines) {
-		// throws with "Jest: Multiple inline snapshots for the same call are not supported."
-		throw new Error("Not implemented");
-		// // move to end
-		// await recorder.start();
-		// await fn();
-		// const actualLines = await recorder.stop();
+	async function toMatchSpeechInlineSnapshot(fn) {
+		// move to end
+		await recorder.start();
+		await fn();
+		const actualLines = await recorder.stop();
 
-		// return toMatchInlineSnapshot.call(this, actualLines);
+		return toMatchInlineSnapshot.call(this, actualLines);
 	}
 
 	/**
