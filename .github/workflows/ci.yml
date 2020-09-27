@@ -28,15 +28,15 @@ jobs:
       - name: "node"
         # examples/node/test.example.ps1 as a GitHub workflow `run` task
         run: |
-          & ${env:NVDA_BIN} --log-file=${env:REPO_PATH}\nvda.log --config-path=${env:NVDA_VENDOR}\settings
-          node ${env:REPO_PATH}\examples\node\index.js ${env:REPO_PATH}\nvda.log
-          & ${env:NVDA_BIN} -q
-        env:
-          REPO_PATH: ${{ github.workspace }}
-          # NVDA_VENDOR: ${{ env.REPO_PATH }}\vendor\nvda-2020.2
-          NVDA_VENDOR: ${{ github.workspace }}\vendor\nvda-2020.2
-          # NVDA_BIN: ${{ env.NVDA_VENDOR }}\portable\nvda.exe
-          NVDA_BIN: ${{ github.workspace }}\vendor\nvda-2020.2\portable\nvda.exe
+          # The path you cloned this repository to
+          $REPO_PATH = ${{ github.workspace }}
+
+          # End of configuration. Changing anything below at your own risk
+          $NVDA_VENDOR = "$REPO_PATH\vendor\nvda-2020.2"
+          $NVDA_BIN = "$NVDA_VENDOR\portable\nvda.exe"
+          & $NVDA_BIN --log-file=$REPO_PATH\nvda.log --config-path=$NVDA_VENDOR\settings
+          node $REPO_PATH\examples\node\index.js $REPO_PATH\\nvda.log
+          & $NVDA_BIN -q
       - uses: actions/upload-artifact@v2
         if: ${{ always() }}
         with:
