@@ -41,9 +41,9 @@ jobs:
       - name: "node"
         # examples/node/test.example.ps1 as a GitHub workflow `run` task
         run: |
-          & $NVDA_BIN --log-file=$REPO_PATH\nvda.log --config-path=$NVDA_VENDOR\settings
-          node $REPO_PATH\examples\node\index.js $REPO_PATH\\nvda.log
-          & $NVDA_BIN -q
+          & ${env:NVDA_BIN} --log-file=${env:REPO_PATH}\nvda.log --config-path=${env:NVDA_VENDOR}\settings
+          node ${env:REPO_PATH}\examples\node\index.js ${env:REPO_PATH}\nvda.log
+          & ${env:NVDA_BIN} -q
         env:
           REPO_PATH: ${{ github.workspace }}
           # NVDA_VENDOR: ${{ env.REPO_PATH }}\vendor\nvda-2020.2
