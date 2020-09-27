@@ -25,20 +25,38 @@ jobs:
       - run: yarn format:check
       - run: yarn test:types
       - run: yarn test:ci
-      - name: "node"
-        # examples/node/test.example.ps1 as a GitHub workflow `run` task
+      - name: "examples/node/test.example.ps1"
         run: |
           # The path you cloned this repository to
           $REPO_PATH = "${{ github.workspace }}"
+          # The path where NVDA speech output is logged. Need read/write access.
+          $LOG_FILE_PATH = "$REPO_PATH\nvda-node.log"
 
           # End of configuration. Changing anything below at your own risk
           $NVDA_VENDOR = "$REPO_PATH\vendor\nvda-2020.2"
           $NVDA_BIN = "$NVDA_VENDOR\portable\nvda.exe"
-          & $NVDA_BIN --log-file=$REPO_PATH\nvda.log --config-path=$NVDA_VENDOR\settings
-          node $REPO_PATH\examples\node\index.js $REPO_PATH\\nvda.log
+          & $NVDA_BIN --log-file=$LOG_FILE_PATH --config-path=$NVDA_VENDOR\settings
+          node $REPO_PATH\examples\node\index.js $LOG_FILE_PATH
+          & $NVDA_BIN -q
+
+      - name: "examples/jest/test.example.ps1"
+        run: |
+          # The path you cloned this repository to
+          $REPO_PATH = "${{ github.workspace }}"
+          # The path where NVDA speech output is logged. Need read/write access.
+          $LOG_FILE_PATH = "$REPO_PATH\nvda-jest.log"
+
+          # End of configuration. Changing anything below at your own risk
+          $NVDA_VENDOR = "$REPO_PATH\vendor\nvda-2020.2"
+          $NVDA_BIN = "$NVDA_VENDOR\portable\nvda.exe"
+          $Env:LOG_FILE_PATH = $LOG_FILE_PATH
+          & $NVDA_BIN --log-file=$Env:LOG_FILE_PATH --config-path=$NVDA_VENDOR\settings
+          yarn jest -c $REPO_PATH\examples\jest\jest.config.js
           & $NVDA_BIN -q
       - uses: actions/upload-artifact@v2
         if: ${{ always() }}
         with:
           name: nvda.log
-          path: nvda.log
+          path: |
+            nvda-node.log
+            nvda-jest.log
