@@ -11,6 +11,8 @@
 		"format": "yarn format:base --write",
 		"format:base": "prettier \"**/*.{json,js,jsx,md,ts,tsx,yml}\"",
 		"format:check": "yarn format:base --check",
+		"test": "jest",
+		"test:ci": "jest --runInBand",
 		"test:types": "tsc -p tsconfig.json"
 	},
 	"devDependencies": {

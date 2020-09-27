@@ -1,1 +1,8 @@
-* text=lf
+# files formatted by prettier
+*.json text eol=lf
+*.js text eol=lf
+*.jsx text eol=lf
+*.md text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.yml text eol=lf
