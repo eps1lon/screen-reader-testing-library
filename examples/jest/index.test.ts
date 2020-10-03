@@ -3,7 +3,7 @@ import {
 	awaitNvdaRecording,
 	createMatchers,
 	createJestSpeechRecorder,
-} from "screen-reader-testing-library";
+} from "@eps1lon/screen-reader-testing-library";
 
 const logFilePath = process.env.LOG_FILE_PATH;
 expect.extend(createMatchers(logFilePath!));

@@ -8,7 +8,7 @@ const playwright = require("playwright");
 const {
 	awaitNvdaRecording,
 	createSpeechRecorder,
-} = require("screen-reader-testing-library");
+} = require("@eps1lon/screen-reader-testing-library");
 
 /**
  * @param {object} config

@@ -3,6 +3,6 @@
 	"version": "1.0.0",
 	"dependencies": {
 		"playwright": "^1.4.0",
-		"screen-reader-testing-library": "^0.1.0"
+		"@eps1lon/screen-reader-testing-library": "^0.0.1"
 	}
 }
