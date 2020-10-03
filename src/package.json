@@ -1,7 +1,9 @@
 {
-	"name": "screen-reader-testing-library",
-	"version": "0.1.0",
+	"name": "@eps1lon/screen-reader-testing-library",
+	"version": "0.0.1",
 	"license": "MIT",
+	"main": "./index.js",
+	"type": "commonjs",
 	"dependencies": {
 		"jest-diff": "^26.4.2",
 		"jest-snapshot": "^26.4.2"
@@ -18,5 +20,8 @@
 		"name": "Sebastian Silbermann",
 		"email": "silbermann.sebastian@gmail.com",
 		"url": "https://solverfox.dev"
+	},
+	"publishConfig": {
+		"registry": "https://npm.pkg.github.com"
 	}
 }
