@@ -1,5 +1,5 @@
 {
-	"name": "@eps1lon/screen-reader-testing-library",
+	"name": "screen-reader-testing-library",
 	"version": "0.0.1",
 	"license": "MIT",
 	"main": "./index.js",
@@ -20,8 +20,5 @@
 		"name": "Sebastian Silbermann",
 		"email": "silbermann.sebastian@gmail.com",
 		"url": "https://solverfox.dev"
-	},
-	"publishConfig": {
-		"registry": "https://npm.pkg.github.com"
 	}
 }
