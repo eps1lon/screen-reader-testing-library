@@ -1,4 +1,4 @@
-const fs = require("fs/promises");
+const { promises: fs } = require("fs");
 const { default: diff } = require("jest-diff");
 const { toMatchInlineSnapshot, toMatchSnapshot } = require("jest-snapshot");
 const { extractSpeechLines } = require("./logParser");
