@@ -1,4 +1,6 @@
 ﻿symbols:
+†	dagger sign	none
+‡	double dagger sign	none
 🩴	thong sandal	none
 🪆	nesting dolls	none
 🪘	long drum	none
@@ -106,11 +108,45 @@
 ☑	check box with check	none
 ✔	check mark	none
 ™	trade mark	none
+µ	micro sign	none
 🏻	light skin tone	none
 🏼	medium-light skin tone	none
 🏽	medium skin tone	none
 🏾	medium-dark skin tone	none
 🏿	dark skin tone	none
+–	en dash	none
+—	em dash	none
+·	middle dot	none
+«	left guillemet	none
+»	right guillemet	none
+§	section	none
+•	bullet	none
+°	degree	none
+℗	sound recording copyright	none
+←	left-pointing arrow	none
+→	right-pointing arrow	none
+↑	up-pointing arrow	none
+↓	down-pointing arrow	none
+⇅	up-pointing and down-pointing arrows	none
+⇆	left-pointing over right-pointing arrows	none
+∆	increment	none
+∇	nabla	none
+∈	element of	none
+÷	division sign	none
+×	multiplication sign	none
+⁻	superscript minus	none
+√	square root	none
+∞	infinity sign	none
+∩	intersection	none
+∪	union	none
+≡	identical to	none
+⊂	subset of	none
+▲	filled up-pointing triangle	none
+▼	filled down-pointing triangle	none
+◊	lozenge	none
+○	hollow circle	none
+●	filled circle	none
+◯	large hollow circle	none
 ⚧	transgender symbol	none
 🤌	pinched fingers	none
 🥲	smiling face with tear	none
@@ -1496,6 +1532,14 @@
 🏳‍⚧	transgender flag	none
 🏳‍🌈	rainbow flag	none
 🏴‍☠	pirate flag	none
+£	pound	none
+¥	yen	none
+€	euro	none
+₹	indian rupee	none
+₽	ruble	none
+¹	superscript one	none
+²	superscript two	none
+³	superscript three	none
 🤙🏻	call me hand light skin tone	none
 🤙🏼	call me hand medium-light skin tone	none
 🤙🏽	call me hand medium skin tone	none
@@ -1555,6 +1599,11 @@
 🤌🏽	pinched fingers medium skin tone	none
 🤌🏾	pinched fingers medium-dark skin tone	none
 🤌🏿	pinched fingers dark skin tone	none
+🥷🏻	ninja light skin tone	none
+🥷🏼	ninja medium-light skin tone	none
+🥷🏽	ninja medium skin tone	none
+🥷🏾	ninja medium-dark skin tone	none
+🥷🏿	ninja dark skin tone	none
 👋🏻	waving hand light skin tone	none
 👋🏼	waving hand medium-light skin tone	none
 👋🏽	waving hand medium skin tone	none
