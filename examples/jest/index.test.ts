@@ -66,7 +66,7 @@ describe("chromium", () => {
 		    "has auto complete",
 		    "editable",
 		    "Search…",
-				"blank",
+		    "blank",
 		  ],
 		]
 	`);
