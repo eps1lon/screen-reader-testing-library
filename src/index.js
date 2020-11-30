@@ -1,7 +1,12 @@
+const { create } = require("domain");
 const { promises: fs } = require("fs");
 const { default: diff } = require("jest-diff");
 const { toMatchInlineSnapshot, toMatchSnapshot } = require("jest-snapshot");
 const { extractSpeechLines } = require("./logParser");
+
+const speechSnapshotBrand = Symbol.for(
+	"screen-reader-testing-library.speechSnapshot"
+);
 
 /**
  * @param {number} timeoutMS
@@ -46,7 +51,7 @@ function createSpeechRecorder(logFilePath) {
 	 * @param {() => Promise<void>} fn
 	 * @returns {Promise<string[][]>}
 	 */
-	async function recordLines(fn) {
+	async function record(fn) {
 		// move to end
 		await start();
 		await fn();
@@ -57,31 +62,49 @@ function createSpeechRecorder(logFilePath) {
 		return fs.access(logFilePath);
 	}
 
-	return { readable, recordLines, start, stop };
+	return { readable, record, start, stop };
 }
 
 /**
+ * Must return `any` or `expect.extend(createMatchers(logFilePath))` does not typecheck.
+ * `toMatchInlineSnapshot` will be unassignable for unknown reasons.
  * @param {string} logFilePath
+ * @returns {any}
  */
 function createMatchers(logFilePath) {
-	const recorder = createSpeechRecorder(logFilePath);
+	const speechRecorder = createSpeechRecorder(logFilePath);
 
 	/**
 	 *
-	 * @param {() => Promise<void>} fn
-	 * @param {string[][]} _expectedLines
-	 * @returns {Promise<ReturnType<typeof toMatchInlineSnapshot>>}
+	 * @param {string[][]} recordedSpeech
+	 * @param {string} [expectedSpeechSnapshot]
+	 * @returns {ReturnType<typeof toMatchInlineSnapshot>}
 	 * @this {import('jest-snapshot/build/types').Context}
 	 */
-	async function toMatchSpeechInlineSnapshot(fn, _expectedLines) {
-		// throws with "Jest: Multiple inline snapshots for the same call are not supported."
-		throw new Error("Not implemented");
-		// // move to end
-		// await recorder.start();
-		// await fn();
-		// const actualLines = await recorder.stop();
+	function toMatchSpeechInlineSnapshot(recordedSpeech, expectedSpeechSnapshot) {
+		// Abort test on first mismatch.
+		// Subsequent actions will be based on an incorrect state otherwise and almost always fail as well.
+		this.dontThrow = () => {};
+		if (typeof recordedSpeech === "function") {
+			throw new Error(
+				"Recording lines is not implemented by the matcher. Use `expect(recordLines(async () => {})).resolves.toMatchInlineSnapshot()` instead"
+			);
+		}
 
-		// return toMatchInlineSnapshot.call(this, actualLines);
+		const actualSpeechSnapshot = {
+			[speechSnapshotBrand]: true,
+			speech: recordedSpeech,
+		};
+
+		// jest's `toMatchInlineSnapshot` relies on arity.
+		if (expectedSpeechSnapshot === undefined) {
+			return toMatchInlineSnapshot.call(this, actualSpeechSnapshot);
+		}
+		return toMatchInlineSnapshot.call(
+			this,
+			actualSpeechSnapshot,
+			expectedSpeechSnapshot
+		);
 	}
 
 	/**
@@ -92,19 +115,19 @@ function createMatchers(logFilePath) {
 	 * @this {import('jest-snapshot/build/types').Context}
 	 */
 	async function toMatchSpeechSnapshot(fn, snapshotName) {
-		const actualLines = await recorder.recordLines(fn);
+		const speech = await speechRecorder.record(fn);
 
-		return toMatchSnapshot.call(this, actualLines, snapshotName);
+		return toMatchSnapshot.call(this, speech, snapshotName);
 	}
 
 	/**
 	 * @param {() => Promise<void>} fn
-	 * @param {string[][]} expectedLines
+	 * @param {string[][]} expectedSpeech
 	 * @returns {Promise<{actual: unknown, message: () => string, pass: boolean}>}
 	 * @this {import('jest-snapshot/build/types').Context}
 	 */
-	async function toAnnounceNVDA(fn, expectedLines) {
-		const actualLines = await recorder.recordLines(fn);
+	async function toAnnounceNVDA(fn, expectedSpeech) {
+		const actualSpeech = await speechRecorder.record(fn);
 
 		const options = {
 			comment: "deep equality",
@@ -112,15 +135,15 @@ function createMatchers(logFilePath) {
 			promise: this.promise,
 		};
 
-		const pass = this.equals(actualLines, expectedLines);
+		const pass = this.equals(actualSpeech, expectedSpeech);
 		const message = pass
 			? () =>
 					this.utils.matcherHint("toBe", undefined, undefined, options) +
 					"\n\n" +
-					`Expected: not ${this.utils.printExpected(expectedLines)}\n` +
-					`Received: ${this.utils.printReceived(actualLines)}`
+					`Expected: not ${this.utils.printExpected(expectedSpeech)}\n` +
+					`Received: ${this.utils.printReceived(actualSpeech)}`
 			: () => {
-					const diffString = diff(expectedLines, actualLines, {
+					const diffString = diff(expectedSpeech, actualSpeech, {
 						expand: this.expand,
 					});
 					return (
@@ -128,15 +151,15 @@ function createMatchers(logFilePath) {
 						"\n\n" +
 						(diffString && diffString.includes("- Expect")
 							? `Difference:\n\n${diffString}`
-							: `Expected: ${this.utils.printExpected(expectedLines)}\n` +
-							  `Received: ${this.utils.printReceived(actualLines)}`)
+							: `Expected: ${this.utils.printExpected(expectedSpeech)}\n` +
+							  `Received: ${this.utils.printReceived(actualSpeech)}`)
 					);
 			  };
 
-		return { actual: actualLines, message, pass };
+		return { actual: actualSpeech, message, pass };
 	}
 
-	return { toAnnounceNVDA, toMatchSpeechInlineSnapshot, toMatchSpeechSnapshot };
+	return { toAnnounceNVDA, toMatchSpeechSnapshot, toMatchSpeechInlineSnapshot };
 }
 
 /**
@@ -156,9 +179,40 @@ function createJestSpeechRecorder(logFilePath) {
 	return recorder;
 }
 
+/**
+ *
+ * @param {jest.Expect} expect
+ * @param {*} logFilePath
+ */
+function extendExpect(expect, logFilePath) {
+	expect.extend(createMatchers(logFilePath));
+
+	expect.addSnapshotSerializer({
+		/**
+		 * @param {any} val
+		 */
+		print(val) {
+			/**
+			 * @type {{ speech: string[][] }}
+			 */
+			const snapshot = val;
+			const { speech } = snapshot;
+
+			return speech
+				.map((line) => {
+					return `"${line.join(", ")}"`;
+				})
+				.join("\n");
+		},
+		test(value) {
+			return value != null && value[speechSnapshotBrand] === true;
+		},
+	});
+}
+
 module.exports = {
 	awaitNvdaRecording,
 	createSpeechRecorder,
-	createMatchers,
 	createJestSpeechRecorder,
+	extendExpect,
 };
