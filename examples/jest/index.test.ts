@@ -1,18 +1,20 @@
 import * as playwright from "playwright";
 import {
 	awaitNvdaRecording,
-	createMatchers,
 	createJestSpeechRecorder,
+	extendExpect,
 } from "screen-reader-testing-library";
 
 const logFilePath = process.env.LOG_FILE_PATH;
-expect.extend(createMatchers(logFilePath!));
+
+extendExpect(expect, logFilePath!);
 
 declare global {
 	namespace jest {
 		interface Matchers<R> {
 			toAnnounceNVDA(expectedLines: string[][]): Promise<void>;
 			toMatchSpeechSnapshot(snapshotName?: string): Promise<void>;
+			toMatchSpeechInlineSnapshot(expectedLinesSnapshot?: string): void;
 		}
 	}
 }
@@ -50,48 +52,29 @@ describe("chromium", () => {
 		await page.bringToFront();
 		await awaitNvdaRecording();
 
-		expect(
-			await speechRecorder.recordLines(async () => {
+		await expect(
+			speechRecorder.record(async () => {
 				await page.keyboard.press("s");
 			})
-		).toMatchInlineSnapshot(`
-		Array [
-		  Array [
-		    "banner landmark",
-		  ],
-		  Array [
-		    "Search",
-		    "combo box",
-		    "expanded",
-		    "has auto complete",
-		    "editable",
-		    "Search…",
-		    "blank",
-		  ],
-		]
-	`);
+		).resolves.toMatchSpeechInlineSnapshot(`
+					"banner landmark"
+					"Search, combo box, expanded, has auto complete, editable, Search…, blank"
+				`);
 
-		expect(
-			await speechRecorder.recordLines(async () => {
+		await expect(
+			speechRecorder.record(async () => {
 				await page.keyboard.type("Rating");
 			})
-		).toMatchInlineSnapshot(`Array []`);
+		).resolves.toMatchSpeechInlineSnapshot(``);
 
-		expect(
-			await speechRecorder.recordLines(async () => {
+		await expect(
+			speechRecorder.record(async () => {
 				await page.keyboard.press("ArrowDown");
 			})
-		).toMatchInlineSnapshot(`
-		Array [
-		  Array [
-		    "list",
-		  ],
-		  Array [
-		    "Link to the result",
-		    "1 of 5",
-		  ],
-		]
-	`);
+		).resolves.toMatchSpeechInlineSnapshot(`
+					"list"
+					"Link to the result, 1 of 5"
+				`);
 	}, 20000);
 
 	it("matches the NVDA speech snapshot when searching the docs", async () => {
