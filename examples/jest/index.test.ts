@@ -66,6 +66,7 @@ describe("chromium", () => {
 		    "has auto complete",
 		    "editable",
 		    "Search…",
+		    "blank",
 		  ],
 		]
 	`);
@@ -139,6 +140,7 @@ describe("chromium", () => {
 				"has auto complete",
 				"editable",
 				"Search…",
+				"blank",
 			],
 		]);
 

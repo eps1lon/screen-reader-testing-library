@@ -56,6 +56,7 @@ async function run(config) {
 			"has auto complete",
 			"editable",
 			"Search…",
+			"blank",
 		],
 	]);
 
@@ -104,7 +105,6 @@ async function main() {
 
 	try {
 		await run({ browser, logFilePath });
-		// await sleep(10000);
 	} finally {
 		tearDown();
 	}
