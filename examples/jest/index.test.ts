@@ -77,7 +77,7 @@ describe("chromium", () => {
 				`);
 	}, 20000);
 
-	it.skip("matches the NVDA speech snapshot when searching the docs", async () => {
+	it("matches the NVDA speech snapshot when searching the docs", async () => {
 		// Opening a new page with the same URL would trigger NVDA's focus caching.
 		// https://stackoverflow.com/questions/22517242/how-to-prevent-nvda-setting-focus-automatically-on-last-used-html-element
 		// We keep tests isolated by adding a random string to the URL that does not affect the page.
