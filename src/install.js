@@ -1,6 +1,8 @@
 const crypto = require("crypto");
 const extract = require("extract-zip");
 const fs = require("fs-extra");
+const http = require("http");
+const https = require("https");
 const path = require("path");
 const lockfile = require("proper-lockfile");
 const os = require("os");
@@ -299,7 +301,7 @@ function downloadFile(url, destinationPath) {
 		reject = y;
 	});
 
-	const request = httpRequest(url, "GET", (response) => {
+	const request = httpRequest(url, (response) => {
 		if (response.statusCode !== 200) {
 			const error = new Error(
 				`Download failed: server returned code ${response.statusCode}. URL: ${url}`
@@ -319,31 +321,33 @@ function downloadFile(url, destinationPath) {
 }
 
 /**
- *
- * @param {URL} url
- * @param {string} method
- * @param {(response: any) => void} response
+ * @param {URL|string} urlOrString
+ * @param {(response: import('http').IncomingMessage) => void} callback+
  */
-function httpRequest(url, method, response) {
-	/**
-	 * @type {any}
-	 */
-	let options = URL.parse(url.toString());
-	options.method = method;
-
+function httpRequest(urlOrString, callback) {
+	const url =
+		typeof urlOrString === "string" ? new URL.URL(urlOrString) : urlOrString;
 	const requestCallback =
 		/**
-		 * @param {any} res
+		 * @param {import('http').IncomingMessage} response
 		 */
-		(res) => {
-			if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location)
-				httpRequest(res.headers.location, method, response);
-			else response(res);
+		(response) => {
+			console.log(response.statusCode, urlOrString);
+			if (
+				response.statusCode !== undefined &&
+				response.statusCode >= 300 &&
+				response.statusCode < 400 &&
+				response.headers.location
+			) {
+				httpRequest(response.headers.location, callback);
+			} else {
+				callback(response);
+			}
 		};
 	const request =
-		options.protocol === "https:"
-			? require("https").request(options, requestCallback)
-			: require("http").request(options, requestCallback);
+		url.protocol === "https:"
+			? https.request(url, requestCallback)
+			: http.request(url, requestCallback);
 	request.end();
 	return request;
 }
