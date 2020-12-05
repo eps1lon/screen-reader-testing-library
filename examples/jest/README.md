@@ -4,9 +4,9 @@ An example using jest as a test runner.
 
 ## Installation
 
+- Windows with powershell
 - node 14.x
 - install dependencies via `yarn`
-- NVDA `2020.2`
 
 ## Getting started
 

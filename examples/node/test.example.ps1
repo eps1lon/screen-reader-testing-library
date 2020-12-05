@@ -1,5 +1,8 @@
+# Required config
 # The path you cloned this repository to
 $REPO_PATH = "C:\Users\eps1lon\Development\nvda-snapshot-testing"
+
+# Optional config
 # The path where NVDA speech output is logged. Need read/write access.
 $LOG_FILE_PATH = "$REPO_PATH\nvda.log"
 # The path where your package manager installed the "screen-reader-testing-library" package.
