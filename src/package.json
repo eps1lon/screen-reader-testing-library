@@ -1,6 +1,6 @@
 {
 	"name": "screen-reader-testing-library",
-	"version": "0.0.1-alpha.3",
+	"version": "0.0.2",
 	"license": "MIT",
 	"main": "./index.js",
 	"type": "commonjs",
