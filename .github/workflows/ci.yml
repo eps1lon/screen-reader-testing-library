@@ -16,6 +16,8 @@ defaults:
 jobs:
   test:
     runs-on: windows-latest
+    env:
+      SRTL_DEV: true
 
     steps:
       - uses: actions/checkout@v2
