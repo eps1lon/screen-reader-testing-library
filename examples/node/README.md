@@ -4,9 +4,9 @@ This is the initial prototype for this project.
 
 ## Installation
 
+- Windows with powershell
 - node 14.x
 - install dependencies via `yarn`
-- NVDA `2020.2`
 
 ## Getting started
 
