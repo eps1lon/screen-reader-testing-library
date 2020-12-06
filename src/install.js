@@ -140,7 +140,7 @@ async function validateCache(packagePath, screenReadersPath, linksDir) {
 		.then((packageJson) => {
 			return JSON.parse(packageJson)["version"];
 		});
-	const artifactsUrlBase = `https://github.com/eps1lon/screen-reader-testing-library/releases/download/v${packageVersion}/`;
+	const artifactsUrlBase = `https://github.com/eps1lon/screen-reader-testing-library/releases/download/screen-reader-testing-library@${packageVersion}/`;
 	for (const screenReader of myScreenReadersToDownload) {
 		await downloadScreenReader(
 			artifactsUrlBase,
