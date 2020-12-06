@@ -102,21 +102,19 @@ function createMatchers(logFilePath) {
 	const speechRecorder = createSpeechRecorder(logFilePath);
 
 	/**
-	 * @param {Speech} recordedSpeech
+	 * @param {() => Promise<void>} fn
 	 * @param {string} [expectedSpeechSnapshot]
-	 * @returns {ReturnType<typeof toMatchInlineSnapshot>}
+	 * @returns {Promise<ReturnType<typeof toMatchInlineSnapshot>>}
 	 * @this {import('jest-snapshot/build/types').Context}
 	 */
-	function toMatchSpeechInlineSnapshot(recordedSpeech, expectedSpeechSnapshot) {
+	async function toMatchSpeechInlineSnapshot(fn, expectedSpeechSnapshot) {
+		// Otherwise jest uses the async stack trace which makes it impossible to know the actual callsite of `toMatchSpeechInlineSnapshot`.
+		this.error = new Error();
 		// Abort test on first mismatch.
 		// Subsequent actions will be based on an incorrect state otherwise and almost always fail as well.
 		this.dontThrow = () => {};
-		if (typeof recordedSpeech === "function") {
-			throw new Error(
-				"Recording lines is not implemented by the matcher. Use `expect(recordLines(async () => {})).resolves.toMatchInlineSnapshot()` instead"
-			);
-		}
 
+		const recordedSpeech = await speechRecorder.record(fn);
 		const actualSpeechSnapshot = {
 			[speechSnapshotBrand]: true,
 			speech: recordedSpeech,

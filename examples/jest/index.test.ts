@@ -43,26 +43,20 @@ describe("chromium", () => {
 		await page.bringToFront();
 		await awaitNvdaRecording();
 
-		await expect(
-			speechRecorder.record(async () => {
-				await page.keyboard.press("s");
-			})
-		).resolves.toMatchSpeechInlineSnapshot(`
+		await expect(async () => {
+			await page.keyboard.press("s");
+		}).toMatchSpeechInlineSnapshot(`
 					"banner landmark"
 					"Search, combo box, expanded, has auto complete, editable, Search…, blank"
 				`);
 
-		await expect(
-			speechRecorder.record(async () => {
-				await page.keyboard.type("Rating");
-			})
-		).resolves.toMatchSpeechInlineSnapshot(``);
+		await expect(async () => {
+			await page.keyboard.type("Rating");
+		}).toMatchSpeechInlineSnapshot(``);
 
-		await expect(
-			speechRecorder.record(async () => {
-				await page.keyboard.press("ArrowDown");
-			})
-		).resolves.toMatchSpeechInlineSnapshot(`
+		await expect(async () => {
+			await page.keyboard.press("ArrowDown");
+		}).toMatchSpeechInlineSnapshot(`
 					"list"
 					"Link to the result, 1 of 5"
 				`);
