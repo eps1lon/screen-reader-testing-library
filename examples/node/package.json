@@ -2,7 +2,7 @@
 	"name": "example-node",
 	"dependencies": {
 		"playwright": "^1.6.2",
-		"screen-reader-testing-library": "^0.0.3"
+		"screen-reader-testing-library": "^0.0.4"
 	},
 	"private": "true",
 	"version": "1.0.0"
