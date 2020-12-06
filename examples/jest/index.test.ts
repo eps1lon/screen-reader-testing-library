@@ -4,7 +4,7 @@ import {
 	createJestSpeechRecorder,
 	extendExpect,
 } from "screen-reader-testing-library";
-import "screen-reader-testing-library/matcherTypes";
+import type {} from "screen-reader-testing-library/matcherTypes";
 
 const logFilePath = process.env.LOG_FILE_PATH;
 
