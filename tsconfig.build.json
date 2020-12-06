@@ -1,0 +1,12 @@
+{
+	"extends": "./tsconfig",
+	"compilerOptions": {
+		"declaration": true,
+		"emitDeclarationOnly": true,
+		"noEmit": false,
+		"outDir": "src/types"
+	},
+	"files": ["src/index.js"],
+	"include": [],
+	"exclude": ["src/**/__tests__/**/*.js"]
+}

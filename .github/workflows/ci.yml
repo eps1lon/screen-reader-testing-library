@@ -23,9 +23,15 @@ jobs:
           node-version: "12.x"
       - uses: microsoft/playwright-github-action@v1
       - run: yarn
+      - name: "Lockfile changes from running `yarn` committed?"
+        run: git diff --exit-code
       - run: yarn format:check
       - run: yarn test:types
       - run: yarn test:ci
+      - name: "`yarn build:types` changes committed?"
+        run: |
+          yarn build:types
+          git diff --exit-code
       - name: "examples/node/test.example.ps1"
         shell: powershell
         run: |

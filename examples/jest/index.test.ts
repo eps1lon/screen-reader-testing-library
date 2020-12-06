@@ -4,20 +4,11 @@ import {
 	createJestSpeechRecorder,
 	extendExpect,
 } from "screen-reader-testing-library";
+import "screen-reader-testing-library/matcherTypes";
 
 const logFilePath = process.env.LOG_FILE_PATH;
 
 extendExpect(expect, logFilePath!);
-
-declare global {
-	namespace jest {
-		interface Matchers<R> {
-			toAnnounceNVDA(expectedLines: string[][]): Promise<void>;
-			toMatchSpeechSnapshot(snapshotName?: string): Promise<void>;
-			toMatchSpeechInlineSnapshot(expectedLinesSnapshot?: string): void;
-		}
-	}
-}
 
 describe("chromium", () => {
 	const speechRecorder = createJestSpeechRecorder(logFilePath!);

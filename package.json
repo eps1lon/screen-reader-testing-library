@@ -8,6 +8,7 @@
 		"src"
 	],
 	"scripts": {
+		"build:types": "yarn tsc --project tsconfig.build.json && yarn format",
 		"format": "yarn format:base --write",
 		"format:base": "prettier \"**/*.{json,js,jsx,md,ts,tsx,yml}\"",
 		"format:check": "yarn format:base --check",
