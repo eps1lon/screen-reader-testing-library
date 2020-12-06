@@ -1,5 +1,13 @@
 # screen-reader-testing-library
 
+## 0.0.6
+
+### Patch Changes
+
+- [`730096e`](https://github.com/eps1lon/screen-reader-testing-library/commit/730096e2f641a8bba167adae583b99130fc14673) Thanks [@eps1lon](https://github.com/eps1lon)! - Fix failing download on install
+
+  Changesets use a different naming scheme for tags which we forgot to incorporate in the install script.
+
 ## 0.0.5
 
 ### Patch Changes
