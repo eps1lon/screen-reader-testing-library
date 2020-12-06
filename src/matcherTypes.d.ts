@@ -7,7 +7,9 @@ declare global {
 		interface Matchers<R> {
 			toAnnounceNVDA(expectedLines: Speech): Promise<void>;
 			toMatchSpeechSnapshot(snapshotName?: string): Promise<void>;
-			toMatchSpeechInlineSnapshot(expectedLinesSnapshot?: string): void;
+			toMatchSpeechInlineSnapshot(
+				expectedLinesSnapshot?: string
+			): Promise<void>;
 		}
 	}
 }
