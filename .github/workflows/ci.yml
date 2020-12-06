@@ -12,8 +12,9 @@ on:
 jobs:
   test:
     runs-on: windows-latest
-    matrix:
-      node: [12, 14, 15]
+    strategy:
+      matrix:
+        node: [12, 14, 15]
     env:
       SRTL_DEV: true
 
