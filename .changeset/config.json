@@ -1,0 +1,13 @@
+{
+	"$schema": "https://unpkg.com/@changesets/config@1.4.0/schema.json",
+	"changelog": [
+		"@changesets/changelog-github",
+		{ "repo": "eps1lon/screen-reader-testing-library" }
+	],
+	"commit": false,
+	"linked": [],
+	"access": "restricted",
+	"baseBranch": "main",
+	"updateInternalDependencies": "patch",
+	"ignore": ["example-jest", "example-node"]
+}
