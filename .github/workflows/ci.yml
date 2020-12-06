@@ -9,10 +9,6 @@ on:
   schedule:
     - cron: "0 */6 * * *"
 
-defaults:
-  run:
-    shell: powershell
-
 jobs:
   test:
     runs-on: windows-latest
@@ -31,6 +27,7 @@ jobs:
       - run: yarn test:types
       - run: yarn test:ci
       - name: "examples/node/test.example.ps1"
+        shell: powershell
         run: |
           # Required config
           # The path you cloned this repository to
@@ -49,6 +46,7 @@ jobs:
           & $NVDA_BIN -quit
 
       - name: "examples/jest/test.example.ps1"
+        shell: powershell
         run: |
           # Required config
           # The path you cloned this repository to
