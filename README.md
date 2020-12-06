@@ -5,4 +5,7 @@ Currently only [NVDA](https://www.nvaccess.org/) is supported.
 
 ## Getting started
 
-Check out the the folders inside `examples/`.
+Check out the the folders inside `examples/`:
+
+- [using `jest`](/examples/jest/)
+- [using `node`](/examples/node/)

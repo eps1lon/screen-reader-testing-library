@@ -1,6 +1,6 @@
 # NVDA snapshot testing
 
-This is the initial prototype for this project.
+Check out [`index.js`](./index.js) for using `screen-reader-testing-library` with `node`.
 
 ## Installation
 
