@@ -1,5 +1,4 @@
 ---
-"example-jest": patch
 "screen-reader-testing-library": patch
 ---
 
