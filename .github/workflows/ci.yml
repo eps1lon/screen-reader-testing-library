@@ -86,6 +86,8 @@ jobs:
     needs: [test]
     if: ${{ github.event_name == 'push' }}
     runs-on: ubuntu-latest
+    env:
+      SRTL_DEV: true
     steps:
       - name: Checkout Repo
         uses: actions/checkout@master
