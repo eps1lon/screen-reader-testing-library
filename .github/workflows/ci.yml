@@ -12,6 +12,8 @@ on:
 jobs:
   test:
     runs-on: windows-latest
+    matrix:
+      node: [12, 14, 15]
     env:
       SRTL_DEV: true
 
@@ -20,7 +22,7 @@ jobs:
       - name: Use node@12
         uses: actions/setup-node@v1
         with:
-          node-version: "12.x"
+          node-version: ${{ matrix.node }}
       - uses: microsoft/playwright-github-action@v1
       - run: yarn
       - name: "Lockfile changes from running `yarn` committed?"
