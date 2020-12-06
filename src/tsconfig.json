@@ -1,0 +1,10 @@
+{
+	"extends": "../tsconfig",
+	"compilerOptions": {
+		"declaration": true,
+		"emitDeclarationOnly": true,
+		"noEmit": false
+	},
+	"include": ["**/*.js"],
+	"exclude": ["**/__tests__/**/*.js"]
+}

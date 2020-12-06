@@ -3,6 +3,7 @@
 	"version": "0.0.3",
 	"license": "MIT",
 	"main": "./index.js",
+	"typings": "./index.d.ts",
 	"type": "commonjs",
 	"dependencies": {
 		"extract-zip": "^2.0.1",
@@ -28,7 +29,6 @@
 		"url": "https://solverfox.dev"
 	},
 	"devDependencies": {
-		"@types/extract-zip": "^1.6.2",
 		"@types/fs-extra": "^9.0.4",
 		"@types/proper-lockfile": "^4.1.1"
 	}

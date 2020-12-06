@@ -1,8 +1,18 @@
-const { create } = require("domain");
 const { promises: fs } = require("fs");
 const { default: diff } = require("jest-diff");
 const { toMatchInlineSnapshot, toMatchSnapshot } = require("jest-snapshot");
 const { extractSpeechLines } = require("./logParser");
+
+/**
+ * @typedef {string[]} SpeechLine
+ * @typedef {SpeechLine[]} Speech
+ *
+ * @typedef {object} Recorder
+ * @property {() => Promise<void>} start
+ * @property {() => Promise<Speech>} stop Returns the speech output since the last `start()`.
+ * @property {(fn: () => Promise<void>) => Promise<Speech>} record Returns the speech output during the call to `fn`.
+ * @property {() => Promise<boolean>} readable
+ */
 
 const speechSnapshotBrand = Symbol.for(
 	"screen-reader-testing-library.speechSnapshot"
@@ -16,14 +26,18 @@ function sleep(timeoutMS) {
 	return new Promise((resolve) => setTimeout(() => resolve(), timeoutMS));
 }
 
-// need to wait for NVDA to flush the speech
-// It seems like it debounces the speech so that the user isn't flooded when quickly navigating
+/**
+ * Must be called before the very first call to `start`.
+ *
+ * @remarks It seems like it debounces the speech so that the user isn't flooded when quickly navigating.
+ */
 function awaitNvdaRecording() {
 	return sleep(2000);
 }
 
 /**
  * @param {string} logFilePath
+ * @returns {Recorder}
  */
 function createSpeechRecorder(logFilePath) {
 	// Intuitively we keep an open handle and read new logs every time we call `readAllNewLogs`.
@@ -32,6 +46,10 @@ function createSpeechRecorder(logFilePath) {
 	// It's a bit heave on memory since we read the whole file into memory.
 	// Should be fine for most tests.
 	let logFileOffset = 0;
+
+	/**
+	 * @returns {Promise<Speech>}
+	 */
 	async function stop() {
 		await awaitNvdaRecording();
 
@@ -42,6 +60,9 @@ function createSpeechRecorder(logFilePath) {
 		return extractSpeechLines(newContent);
 	}
 
+	/**
+	 * @returns {Promise<void>}
+	 */
 	async function start() {
 		const logFile = await fs.stat(logFilePath);
 		logFileOffset = logFile.size;
@@ -49,7 +70,7 @@ function createSpeechRecorder(logFilePath) {
 
 	/**
 	 * @param {() => Promise<void>} fn
-	 * @returns {Promise<string[][]>}
+	 * @returns {Promise<Speech>}
 	 */
 	async function record(fn) {
 		// move to end
@@ -58,8 +79,14 @@ function createSpeechRecorder(logFilePath) {
 		return await stop();
 	}
 
+	/**
+	 * @returns {Promise<boolean>}
+	 */
 	function readable() {
-		return fs.access(logFilePath);
+		return fs.access(logFilePath).then(
+			() => true,
+			() => false
+		);
 	}
 
 	return { readable, record, start, stop };
@@ -75,8 +102,7 @@ function createMatchers(logFilePath) {
 	const speechRecorder = createSpeechRecorder(logFilePath);
 
 	/**
-	 *
-	 * @param {string[][]} recordedSpeech
+	 * @param {Speech} recordedSpeech
 	 * @param {string} [expectedSpeechSnapshot]
 	 * @returns {ReturnType<typeof toMatchInlineSnapshot>}
 	 * @this {import('jest-snapshot/build/types').Context}
@@ -122,7 +148,7 @@ function createMatchers(logFilePath) {
 
 	/**
 	 * @param {() => Promise<void>} fn
-	 * @param {string[][]} expectedSpeech
+	 * @param {Speech} expectedSpeech
 	 * @returns {Promise<{actual: unknown, message: () => string, pass: boolean}>}
 	 * @this {import('jest-snapshot/build/types').Context}
 	 */
@@ -169,9 +195,7 @@ function createJestSpeechRecorder(logFilePath) {
 	const recorder = createSpeechRecorder(logFilePath);
 
 	beforeAll(async () => {
-		try {
-			await recorder.readable();
-		} catch (error) {
+		if (!(await recorder.readable())) {
 			throw new Error(`Log file in '${logFilePath}' is not readable`);
 		}
 	});
@@ -180,9 +204,9 @@ function createJestSpeechRecorder(logFilePath) {
 }
 
 /**
- *
  * @param {jest.Expect} expect
- * @param {*} logFilePath
+ * @param {string} logFilePath
+ * @returns {void}
  */
 function extendExpect(expect, logFilePath) {
 	expect.extend(createMatchers(logFilePath));
@@ -193,7 +217,7 @@ function extendExpect(expect, logFilePath) {
 		 */
 		print(val) {
 			/**
-			 * @type {{ speech: string[][] }}
+			 * @type {{ speech: Speech }}
 			 */
 			const snapshot = val;
 			const { speech } = snapshot;
