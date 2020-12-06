@@ -7,7 +7,7 @@
 		"@types/jest": "^26.0.13",
 		"jest": "^26.4.2",
 		"playwright": "^1.6.2",
-		"screen-reader-testing-library": "^0.0.4",
+		"screen-reader-testing-library": "^0.0.5",
 		"typescript": "^4.0.2"
 	},
 	"private": "true",
