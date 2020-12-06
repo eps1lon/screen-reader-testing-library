@@ -2,22 +2,12 @@ import * as playwright from "playwright";
 import {
 	awaitNvdaRecording,
 	createJestSpeechRecorder,
-	extendExpect,
 } from "screen-reader-testing-library";
+import extendExpect from "screen-reader-testing-library/extend-expect";
 
 const logFilePath = process.env.LOG_FILE_PATH;
 
 extendExpect(expect, logFilePath!);
-
-declare global {
-	namespace jest {
-		interface Matchers<R> {
-			toAnnounceNVDA(expectedLines: string[][]): Promise<void>;
-			toMatchSpeechSnapshot(snapshotName?: string): Promise<void>;
-			toMatchSpeechInlineSnapshot(expectedLinesSnapshot?: string): void;
-		}
-	}
-}
 
 describe("chromium", () => {
 	const speechRecorder = createJestSpeechRecorder(logFilePath!);

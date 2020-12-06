@@ -3,7 +3,7 @@
 	"version": "0.0.3",
 	"license": "MIT",
 	"main": "./index.js",
-	"typings": "./index.d.ts",
+	"typings": "./types/index.d.ts",
 	"type": "commonjs",
 	"dependencies": {
 		"extract-zip": "^2.0.1",

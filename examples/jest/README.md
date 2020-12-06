@@ -1,6 +1,6 @@
 # NVDA snapshot testing
 
-An example using jest as a test runner.
+Check out [`index.test.ts`](./index.test.ts) when you want to use `jest` as a test runner.
 
 ## Installation
 
