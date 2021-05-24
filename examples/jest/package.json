@@ -3,7 +3,7 @@
 	"dependencies": {
 		"@babel/core": "^7.11.6",
 		"@babel/preset-env": "^7.11.5",
-		"@babel/preset-typescript": "^7.10.4",
+		"@babel/preset-typescript": "^7.13.0",
 		"@types/jest": "^26.0.23",
 		"jest": "^26.4.2",
 		"playwright": "^1.11.1",
