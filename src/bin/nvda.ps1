@@ -1,7 +1,7 @@
 param ([switch] $quit, $logFilePath)
 
 $CACHE_DIR = "$HOME\AppData\Local\screen-reader-testing-library"
-$NVDA_VENDOR = "$CACHE_DIR\screen-readers\nvda-2020.3"
+$NVDA_VENDOR = "$CACHE_DIR\screen-readers\nvda-2020.4"
 $NVDA_BIN = "$NVDA_VENDOR\portable\nvda.exe"
 
 if ($logFilePath) {

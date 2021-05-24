@@ -1,0 +1,32 @@
+INFO - __main__ (19:39:31.310) - MainThread (6072):
+Starting NVDA version 2019.3.1
+INFO - core.main (19:39:31.395) - MainThread (6072):
+Config dir: C:\Users\eps1lon\AppData\Roaming\nvda
+INFO - config.ConfigManager._loadConfig (19:39:31.395) - MainThread (6072):
+Loading config: C:\Users\eps1lon\AppData\Roaming\nvda\nvda.ini
+INFO - core.main (19:39:31.445) - MainThread (6072):
+Using Windows version 10.0.18363 workstation
+INFO - core.main (19:39:31.445) - MainThread (6072):
+Using Python version 3.7.5 (tags/v3.7.5:5c02a39a0b, Oct 14 2019, 23:09:19) [MSC v.1916 32 bit (Intel)]
+INFO - core.main (19:39:31.445) - MainThread (6072):
+Using comtypes version 1.1.7
+INFO - core.main (19:39:31.445) - MainThread (6072):
+Using configobj version 5.1.0 with validate version 1.0.1
+INFO - synthDriverHandler.setSynth (19:39:31.751) - MainThread (6072):
+Loaded synthDriver sapi5
+INFO - core.main (19:39:31.751) - MainThread (6072):
+Using wx version 4.0.3 msw (phoenix) wxWidgets 3.0.5 with six version 1.12.0
+INFO - brailleInput.initialize (19:39:31.752) - MainThread (6072):
+Braille input initialized
+INFO - braille.initialize (19:39:31.752) - MainThread (6072):
+Using liblouis version 3.10.0
+INFO - braille.initialize (19:39:31.755) - MainThread (6072):
+Using pySerial version 3.4
+INFO - braille.BrailleHandler.setDisplayByName (19:39:31.758) - MainThread (6072):
+Loaded braille display driver noBraille, current display has 0 cells.
+INFO - core.main (19:39:31.843) - MainThread (6072):
+Java Access Bridge support initialized
+INFO - _UIAHandler.UIAHandler.MTAThreadFunc (19:39:31.851) - _UIAHandler.UIAHandler.MTAThread (7224):
+UIAutomation: IUIAutomation6
+INFO - core.main (19:39:31.965) - MainThread (6072):
+NVDA initialized

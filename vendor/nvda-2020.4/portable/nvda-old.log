@@ -1,0 +1,44 @@
+INFO - __main__ (19:35:08.722) - MainThread (3892):
+Starting NVDA version 2019.3.1
+INFO - core.main (19:35:08.806) - MainThread (3892):
+Config dir: C:\Users\eps1lon\AppData\Roaming\nvda
+INFO - config.ConfigManager._loadConfig (19:35:08.806) - MainThread (3892):
+Loading config: C:\Users\eps1lon\AppData\Roaming\nvda\nvda.ini
+INFO - core.main (19:35:08.853) - MainThread (3892):
+Using Windows version 10.0.18363 workstation
+INFO - core.main (19:35:08.854) - MainThread (3892):
+Using Python version 3.7.5 (tags/v3.7.5:5c02a39a0b, Oct 14 2019, 23:09:19) [MSC v.1916 32 bit (Intel)]
+INFO - core.main (19:35:08.854) - MainThread (3892):
+Using comtypes version 1.1.7
+INFO - core.main (19:35:08.854) - MainThread (3892):
+Using configobj version 5.1.0 with validate version 1.0.1
+INFO - synthDriverHandler.setSynth (19:35:09.160) - MainThread (3892):
+Loaded synthDriver sapi5
+INFO - core.main (19:35:09.160) - MainThread (3892):
+Using wx version 4.0.3 msw (phoenix) wxWidgets 3.0.5 with six version 1.12.0
+INFO - brailleInput.initialize (19:35:09.161) - MainThread (3892):
+Braille input initialized
+INFO - braille.initialize (19:35:09.161) - MainThread (3892):
+Using liblouis version 3.10.0
+INFO - braille.initialize (19:35:09.164) - MainThread (3892):
+Using pySerial version 3.4
+INFO - braille.BrailleHandler.setDisplayByName (19:35:09.166) - MainThread (3892):
+Loaded braille display driver noBraille, current display has 0 cells.
+INFO - core.main (19:35:09.257) - MainThread (3892):
+Java Access Bridge support initialized
+INFO - _UIAHandler.UIAHandler.MTAThreadFunc (19:35:09.266) - _UIAHandler.UIAHandler.MTAThread (11768):
+UIAutomation: IUIAutomation6
+INFO - core.main (19:35:09.357) - MainThread (3892):
+NVDA initialized
+INFO - core.main (19:35:18.646) - MainThread (3892):
+Exiting
+INFO - config.ConfigManager.save (19:35:18.660) - MainThread (3892):
+Base configuration saved
+INFO - __main__ (19:35:19.788) - MainThread (3892):
+NVDA exit
+Traceback (most recent call last):
+  File "nvda.pyw", line 197, in <module>
+  File "logHandler.pyc", line 325, in initialize
+  File "logging\__init__.pyc", line 1087, in __init__
+  File "logging\__init__.pyc", line 1116, in _open
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Program Files (x86)\\NVDA\\%~dp0\\nvda.log'
