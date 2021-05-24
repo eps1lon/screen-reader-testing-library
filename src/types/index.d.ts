@@ -5,11 +5,11 @@ export type Recorder = {
 	/**
 	 * Returns the speech output since the last `start()`.
 	 */
-	stop: () => Promise<string[][]>;
+	stop: () => Promise<Speech>;
 	/**
 	 * Returns the speech output during the call to `fn`.
 	 */
-	record: (fn: () => Promise<void>) => Promise<string[][]>;
+	record: (fn: () => Promise<void>) => Promise<Speech>;
 	readable: () => Promise<boolean>;
 };
 /**
