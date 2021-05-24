@@ -10,27 +10,44 @@ function extractSpeechLines(nvdaLog) {
 		})
 		.map((line) => {
 			// In: "Speaking ['speech1', 'speech2', 'speech 3']"
-			// Out: "['speech1', 'speech2', 'speech 3']"
+			// Out: "'speech1', 'speech2', 'speech 3'"
 			const listText = line.trim().replace(/^Speaking \[([^\]]+)\]/, "$1");
 
-			// In: "['speech1', 'speech2', 'speech 3']"
-			// Out: the corresponding array structure in JS with added quotes
-			return listText
-				.split(",")
-				.map((rawSpeech) => {
-					const speech = rawSpeech.trim();
-					if (speech.startsWith("'")) {
-						return speech.slice(1, -1);
+			// light-weight parser for
+			// In: "'speech1', 'speech2, other', 'speech 3'"
+			// Put: ['speech1', 'speech2, other', 'speech 3']
+			/**
+			 * @type {string[]}
+			 */
+			const spoken = [];
+			/**
+			 * @type {'type' | 'command' | 'speech'}
+			 */
+			let currentlyParsing = "type";
+			let speech = "";
+			for (const token of listText) {
+				if (currentlyParsing === "type") {
+					if (token === "'") {
+						currentlyParsing = "speech";
+					} else if (!/(\s|,)/.test(token)) {
+						currentlyParsing = "command";
 					}
-					// ignore commands for now
-					return null;
-				})
-				.filter(
-					/**
-					 * @returns {speech is string}
-					 */
-					(speech) => speech !== null
-				);
+				} else if (currentlyParsing === "command") {
+					if (token === ",") {
+						currentlyParsing = "type";
+					}
+				} else if (currentlyParsing === "speech") {
+					if (token === "'") {
+						spoken.push(speech);
+						speech = "";
+						currentlyParsing = "type";
+					} else {
+						speech += token;
+					}
+				}
+			}
+
+			return spoken;
 		});
 }
 
