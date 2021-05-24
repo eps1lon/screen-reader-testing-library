@@ -1,7 +1,7 @@
 {
 	"name": "example-node",
 	"dependencies": {
-		"playwright": "^1.6.2",
+		"playwright": "^1.11.1",
 		"screen-reader-testing-library": "^0.0.7"
 	},
 	"private": "true",
