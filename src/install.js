@@ -297,6 +297,7 @@ function downloadFile(url, destinationPath) {
 	let reject = () => {};
 
 	const promise = new Promise((x, y) => {
+		// @ts-expect-error -- void Promise
 		fulfill = x;
 		reject = y;
 	});
