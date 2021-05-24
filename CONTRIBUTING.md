@@ -22,4 +22,5 @@ $ yarn
    - Remove all folders in `locale` except `en` i.e. only include english
 1. Update the `revision` in `src/screenReaders.json`
 1. Update the revision in `src/bin/nvda.ps1`
-1. On the next release attach a zip of `vendor/nvda-${NEW_REVISION_NUMBER}`
+1. On the next release attach a zip of `vendor/nvda-${NEW_REVISION_NUMBER}/*`
+   Be sure that you create an archive of the folders inside `nvda-${REVISION_NUMBER}` not the folder itself.
