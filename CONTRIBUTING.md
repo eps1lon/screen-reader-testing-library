@@ -16,6 +16,11 @@ $ yarn
 1. start NVDA
 1. Right click status icon
 1. Tools
-1. Create portable copy
+1. Create portable copy in `vendor/nvda-${NEW_REVISION_NUMBER}/portable`
    - don't include current configuration
-   - Remove documentation folder
+   - Remove `documentation` folder
+   - Remove all folders in `locale` except `en` i.e. only include english
+1. Update the `revision` in `src/screenReaders.json`
+1. Update the revision in `src/bin/nvda.ps1`
+1. On the next release attach a zip of `vendor/nvda-${NEW_REVISION_NUMBER}/*`
+   Be sure that you create an archive of the folders inside `nvda-${REVISION_NUMBER}` not the folder itself.

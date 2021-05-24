@@ -1,0 +1,318 @@
+INFO - __main__ (11:28:02.756) - MainThread (6800):
+Starting NVDA version 2020.4
+INFO - core.main (11:28:02.848) - MainThread (6800):
+Config dir: C:\Users\eps1lon\Development\nvda-snapshot-testing\vendor\nvda-2020.4\settings
+INFO - config.ConfigManager._loadConfig (11:28:02.848) - MainThread (6800):
+Loading config: C:\Users\eps1lon\Development\nvda-snapshot-testing\vendor\nvda-2020.4\settings\nvda.ini
+INFO - core.main (11:28:02.862) - MainThread (6800):
+Using Windows version 10.0.19041 workstation
+INFO - core.main (11:28:02.862) - MainThread (6800):
+Using Python version 3.7.9 (tags/v3.7.9:13c94747c7, Aug 17 2020, 18:01:55) [MSC v.1900 32 bit (Intel)]
+INFO - core.main (11:28:02.862) - MainThread (6800):
+Using comtypes version 1.1.7
+INFO - core.main (11:28:02.862) - MainThread (6800):
+Using configobj version 5.1.0 with validate version 1.0.1
+INFO - speechDictHandler.dictFormatUpgrade._doSynthVoiceDictBackupAndMove (11:28:03.099) - MainThread (6800):
+Upgrading voice dictionaries for espeak
+INFO - speechDictHandler.dictFormatUpgrade._doSynthVoiceDictBackupAndMove (11:28:03.099) - MainThread (6800):
+Upgrading voice dictionaries for silence
+INFO - synthDriverHandler.setSynth (11:28:03.100) - MainThread (6800):
+Loaded synthDriver silence
+INFO - core.main (11:28:03.100) - MainThread (6800):
+Using wx version 4.0.3 msw (phoenix) wxWidgets 3.0.5 with six version 1.12.0
+INFO - brailleInput.initialize (11:28:03.101) - MainThread (6800):
+Braille input initialized
+INFO - braille.initialize (11:28:03.101) - MainThread (6800):
+Using liblouis version 3.16.1
+INFO - braille.initialize (11:28:03.103) - MainThread (6800):
+Using pySerial version 3.4
+INFO - braille.BrailleHandler.setDisplayByName (11:28:03.107) - MainThread (6800):
+Loaded braille display driver noBraille, current display has 0 cells.
+INFO - core.main (11:28:03.256) - MainThread (6800):
+Java Access Bridge support initialized
+INFO - _UIAHandler.UIAHandler.MTAThreadFunc (11:28:03.266) - _UIAHandler.UIAHandler.MTAThread (5768):
+UIAutomation: IUIAutomation6
+DEBUGWARNING - inputCore.InputManager.loadLocaleGestureMap (11:28:03.405) - MainThread (6800):
+No locale gesture map for language en
+DEBUGWARNING - inputCore.InputManager.loadUserGestureMap (11:28:03.405) - MainThread (6800):
+No user gesture map
+DEBUGWARNING - touchHandler.touchSupported (11:28:03.428) - MainThread (6800):
+Touch only supported on installed copies
+DEBUGWARNING - updateCheck.initialize (11:28:03.429) - MainThread (6800):
+Couldn't retrieve update state
+Traceback (most recent call last):
+  File "updateCheck.pyc", line 781, in initialize
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\eps1lon\\Development\\nvda-snapshot-testing\\vendor\\nvda-2020.4\\settings\\updateCheckState.pickle'
+INFO - core.main (11:28:03.430) - MainThread (6800):
+NVDA initialized
+DEBUGWARNING - virtualBuffers.VirtualBuffer.prepare (11:28:03.639) - MainThread (6800):
+appModule has no binding handle to injected code, can't prepare virtualBuffer yet.
+DEBUGWARNING - virtualBuffers.VirtualBuffer.prepare (11:28:03.641) - MainThread (6800):
+appModule has no binding handle to injected code, can't prepare virtualBuffer yet.
+DEBUGWARNING - virtualBuffers.VirtualBuffer.prepare (11:28:03.643) - MainThread (6800):
+appModule has no binding handle to injected code, can't prepare virtualBuffer yet.
+DEBUGWARNING - virtualBuffers.VirtualBuffer.prepare (11:28:03.644) - MainThread (6800):
+appModule has no binding handle to injected code, can't prepare virtualBuffer yet.
+IO - speech.speak (11:28:03.650) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'nvda.ini - Untitled (Workspace) - Visual Studio Code', 'document']
+IO - speech.speak (11:28:03.727) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'application']
+IO - speech.speak (11:28:03.736) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'document']
+IO - speech.speak (11:28:08.869) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'speechDicts']
+IO - speech.speak (11:28:08.942) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'profiles']
+IO - speech.speak (11:28:08.964) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'profiles']
+IO - speech.speak (11:28:09.097) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'addons']
+IO - speech.speak (11:28:09.135) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'addons']
+IO - speech.speak (11:28:09.411) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'Files Explorer', 'tree view']
+IO - speech.speak (11:28:09.414) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'level 5', 'addons', '1 of 6']
+IO - speech.speak (11:28:09.453) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'expanded']
+IO - speech.speak (11:28:09.562) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'addons']
+IO - speech.speak (11:28:10.225) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'collapsed']
+IO - speech.speak (11:28:10.495) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'addons']
+IO - speech.speak (11:28:10.528) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'addons']
+IO - speech.speak (11:28:10.636) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'profiles']
+IO - speech.speak (11:28:11.006) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'addonsState.pickle', 'not selected', '5 of 6', 'level 5']
+IO - speech.speak (11:28:11.032) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'profiles', 'expanded', '2 of 6', 'level 5']
+IO - speech.speak (11:28:11.395) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'collapsed']
+IO - speech.speak (11:28:12.035) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'level 6', 'voiceDicts.v1', 'expanded', '1 of 2']
+IO - speech.speak (11:28:12.052) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'level 5', 'speechDicts', 'expanded', '3 of 6']
+IO - speech.speak (11:28:12.954) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'collapsed']
+IO - speech.speak (11:28:13.215) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'updateCheckState.pickle']
+IO - speech.speak (11:28:13.234) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'updateCheckState.pickle']
+IO - speech.speak (11:28:13.388) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'addonsState.pickle']
+IO - speech.speak (11:28:14.036) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'speechDicts']
+IO - speech.speak (11:28:14.523) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'speechDicts', 'expanded', '3 of 6', 'level 5']
+IO - speech.speak (11:28:14.544) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'updates', 'expanded', '4 of 6', 'level 5']
+IO - speech.speak (11:28:14.980) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'collapsed']
+IO - speech.speak (11:28:15.521) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'addonsState.pickle']
+IO - speech.speak (11:28:18.098) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'speechDicts']
+IO - speech.speak (11:28:18.113) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'speechDicts']
+IO - speech.speak (11:28:18.529) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'addons', 'expanded', '1 of 6', 'level 5']
+IO - speech.speak (11:28:18.835) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'speechDicts']
+IO - speech.speak (11:28:19.112) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'updates', 'expanded', '4 of 6', 'level 5']
+IO - speech.speak (11:28:19.337) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'speechDicts']
+IO - speech.speak (11:28:19.453) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'speechDicts']
+IO - speech.speak (11:28:19.603) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'speechDicts']
+IO - speech.speak (11:28:19.640) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'speechDicts']
+IO - speech.speak (11:28:19.782) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'speechDicts', 'expanded', '3 of 6', 'level 5']
+IO - speech.speak (11:28:20.399) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'level 7', 'espeak', 'expanded', '1 of 2']
+IO - speech.speak (11:28:20.480) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'level 6', 'voiceDicts.v1', 'expanded', '1 of 2']
+IO - speech.speak (11:28:21.527) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'voiceDictsBackup.v0']
+IO - speech.speak (11:28:22.323) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'voiceDicts.v1', 'not selected', 'expanded', '1 of 2', 'level 6']
+IO - speech.speak (11:28:22.332) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'voiceDictsBackup.v0', 'expanded', '2 of 2', 'level 6']
+IO - speech.speak (11:28:22.342) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'voiceDictsBackup.v0']
+IO - speech.speak (11:28:22.788) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'addonsState.pickle']
+IO - speech.speak (11:28:23.317) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'level 5', 'nvda.ini', '6 of 6']
+IO - speech.speak (11:28:24.200) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'voiceDictsBackup.v0']
+IO - speech.speak (11:28:24.220) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'voiceDictsBackup.v0']
+IO - speech.speak (11:28:24.440) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'voiceDicts.v1']
+IO - speech.speak (11:28:24.523) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'speechDicts']
+IO - speech.speak (11:28:24.614) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'speechDicts']
+IO - speech.speak (11:28:24.628) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'voiceDicts.v1']
+IO - speech.speak (11:28:24.717) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'voiceDictsBackup.v0']
+IO - speech.speak (11:28:24.938) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'voiceDictsBackup.v0']
+IO - speech.speak (11:28:24.957) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'voiceDictsBackup.v0']
+IO - speech.speak (11:28:25.157) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'voiceDicts.v1']
+IO - speech.speak (11:28:25.186) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'voiceDicts.v1']
+IO - speech.speak (11:28:25.644) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'level 6', 'voiceDicts.v1', 'collapsed', '1 of 2']
+IO - speech.speak (11:28:25.794) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'speechDicts']
+IO - speech.speak (11:28:26.098) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'level 5', 'speechDicts', 'collapsed', '3 of 6']
+IO - speech.speak (11:28:26.493) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'expanded']
+IO - speech.speak (11:28:27.176) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'menu']
+IO - speech.speak (11:28:27.662) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'Delete Delete', '12 of 12']
+IO - speech.speak (11:28:27.980) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'Delete']
+IO - speech.speak (11:28:28.012) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'Delete']
+IO - speech.speak (11:28:28.904) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'Visual Studio Code', 'dialog', "Are you sure you want to delete 'speechDicts' and its contents?\nYou can restore this file from the Recycle Bin."]
+IO - speech.speak (11:28:28.910) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'Move to Recycle Bin', 'button', 'ALT+M']
+DEBUGWARNING - NVDAObjects.IAccessible.IAccessible._get_IA2WindowHandle (11:28:29.182) - MainThread (6800):
+IAccessible2::windowHandle failed: (-2147467259, 'Unspecified error', (None, None, None, 0, None))
+IO - speech.speak (11:28:29.746) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), "Visual Studio Code Are you sure you want to delete 'speechDicts' and its contents?\nYou can restore this file from the Recycle Bin."]
+IO - speech.speak (11:28:29.771) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'Move to Recycle Bin']
+IO - speech.speak (11:28:30.110) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'pressed']
+IO - speech.speak (11:28:30.447) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'nvda.ini - Untitled (Workspace) - Visual Studio Code', 'document']
+IO - speech.speak (11:28:30.451) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'application']
+IO - speech.speak (11:28:30.459) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'Files Explorer', 'tree view']
+IO - speech.speak (11:28:30.462) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'addonsState.pickle', 'expanded', '4 of 5', 'level 5']
+IO - speech.speak (11:28:30.500) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'Files Explorer', 'tree view']
+IO - speech.speak (11:28:31.116) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'addonsState.pickle']
+IO - speech.speak (11:28:33.187) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'addons', 'collapsed', '1 of 5', 'level 5']
+IO - speech.speak (11:28:33.621) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'updates']
+IO - speech.speak (11:28:34.262) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'profiles', 'expanded', '2 of 5', 'level 5']
+IO - speech.speak (11:28:34.483) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'addons']
+IO - speech.speak (11:28:34.498) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'addons']
+IO - speech.speak (11:28:34.666) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'addons', 'expanded', '1 of 5', 'level 5']
+IO - speech.speak (11:28:35.546) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'Tab Size: 2']
+IO - speech.speak (11:28:35.562) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'Tab Size: 2']
+IO - speech.speak (11:28:35.653) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'Notification Chevron']
+DEBUGWARNING - Python warning (11:28:35.811) - MainThread (6800):
+C:\Users\eps1lon\Development\nvda-snapshot-testing\vendor\nvda-2020.4\portable\library.zip\api.py:298: DeprecationWarning: Yield() is deprecated
+IO - speech.speak (11:28:35.812) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'Taskbar']
+IO - speech.speak (11:28:35.843) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'Notification Overflow']
+IO - speech.speak (11:28:36.148) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'NVIDIA GeForce Game Ready Driver update is available']
+IO - speech.speak (11:28:36.223) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'RescueTime']
+IO - speech.speak (11:28:36.255) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'NVIDIA GeForce Game Ready Driver update is available']
+IO - speech.speak (11:28:36.317) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'NVDA']
+DEBUGWARNING - watchdog._watcher (11:28:37.011) - watchdog (9096):
+Trying to recover from freeze. Listing stacks for Python threads:
+Python stack for thread 9096 (watchdog):
+  File "threading.pyc", line 890, in _bootstrap
+  File "threading.pyc", line 926, in _bootstrap_inner
+  File "threading.pyc", line 870, in run
+  File "watchdog.pyc", line 127, in _watcher
+  File "watchdog.pyc", line 63, in getFormattedStacksForAllThreads
+
+Python stack for thread 14072 (winInputHook):
+  File "threading.pyc", line 890, in _bootstrap
+  File "threading.pyc", line 926, in _bootstrap_inner
+  File "threading.pyc", line 870, in run
+  File "winInputHook.pyc", line 79, in hookThreadFunc
+
+Python stack for thread 5768 (_UIAHandler.UIAHandler.MTAThread):
+  File "threading.pyc", line 890, in _bootstrap
+  File "threading.pyc", line 926, in _bootstrap_inner
+  File "threading.pyc", line 870, in run
+  File "_UIAHandler.pyc", line 315, in MTAThreadFunc
+  File "queue.pyc", line 170, in get
+  File "threading.pyc", line 296, in wait
+
+Python stack for thread 4556 (braille._BgThread):
+  File "threading.pyc", line 890, in _bootstrap
+  File "threading.pyc", line 926, in _bootstrap_inner
+  File "threading.pyc", line 870, in run
+  File "braille.pyc", line 2188, in func
+
+Python stack for thread 6800 (MainThread):
+  File "nvda.pyw", line 247, in <module>
+  File "core.pyc", line 567, in main
+  File "wx\core.pyc", line 2134, in MainLoop
+  File "gui\__init__.pyc", line 1067, in Notify
+  File "core.pyc", line 538, in run
+  File "mouseHandler.pyc", line 257, in pumpAll
+  File "mouseHandler.pyc", line 213, in executeMouseMoveEvent
+  File "NVDAObjects\__init__.pyc", line 289, in objectFromPoint
+  File "NVDAObjects\__init__.pyc", line 98, in __call__
+  File "appModules\explorer.pyc", line 286, in chooseNVDAObjectOverlayClasses
+  File "baseObject.pyc", line 42, in __get__
+  File "baseObject.pyc", line 146, in _getPropertyViaCache
+  File "NVDAObjects\IAccessible\__init__.pyc", line 978, in _get_parent
+  File "NVDAObjects\__init__.pyc", line 98, in __call__
+  File "appModules\explorer.pyc", line 286, in chooseNVDAObjectOverlayClasses
+  File "baseObject.pyc", line 42, in __get__
+  File "baseObject.pyc", line 146, in _getPropertyViaCache
+  File "NVDAObjects\IAccessible\__init__.pyc", line 981, in _get_parent
+  File "NVDAObjects\__init__.pyc", line 98, in __call__
+  File "appModules\explorer.pyc", line 286, in chooseNVDAObjectOverlayClasses
+  File "baseObject.pyc", line 42, in __get__
+  File "baseObject.pyc", line 146, in _getPropertyViaCache
+  File "NVDAObjects\IAccessible\__init__.pyc", line 988, in _get_parent
+  File "NVDAObjects\window\__init__.pyc", line 304, in correctAPIForRelation
+  File "NVDAObjects\__init__.pyc", line 227, in findBestAPIClass
+  File "NVDAObjects\IAccessible\__init__.pyc", line 410, in kwargsFromSuper
+  File "IAccessibleHandler\__init__.pyc", line 412, in accessibleObjectFromEvent
+  File "oleacc.pyc", line 265, in AccessibleObjectFromEvent
+  File "gui\__init__.pyc", line 592, in onActivate
+  File "gui\__init__.pyc", line 155, in postPopup
+
+INFO - core.main (11:28:37.036) - MainThread (6800):
+Exiting
+IO - speech.speak (11:28:37.246) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'nvda.ini - Untitled (Workspace) - Visual Studio Code', 'document']
+IO - speech.speak (11:28:37.250) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'application']
+IO - speech.speak (11:28:37.258) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'Files Explorer', 'tree view']
+IO - speech.speak (11:28:37.261) - MainThread (6800):
+Speaking [LangChangeCommand ('en'), 'addons', 'expanded', '1 of 5', 'level 5']
+INFO - __main__ (11:28:37.408) - MainThread (6800):
+NVDA exit
