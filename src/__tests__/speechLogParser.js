@@ -200,8 +200,7 @@ it("ignores commands", () => {
 		    "Search…",
 		  ],
 		  Array [
-		    "Too much output to announc",
-		    "",
+		    "Too much output to announce, navigate to rows manually to readteardown JestAssertionError: expect(received).toEqual(expected) // deep equality - Expected - 2 + Received + 2 Array [ Array [ + \\"angChangeCommand (\\\\",
 		  ],
 		  Array [
 		    "nvda.ini (Working Tree) - nvda-snapshot-testing - Visual Studio Code",
@@ -217,7 +216,7 @@ it("ignores commands", () => {
 		    "complementary landmark",
 		  ],
 		  Array [
-		    "Terminal ",
+		    "Terminal 2, PowerShell Integrated Console",
 		    "edit",
 		    "blank",
 		  ],
@@ -230,6 +229,23 @@ it("ignores commands", () => {
 		  Array [
 		    "Files Explorer",
 		    "tree view",
+		  ],
+		]
+	`);
+});
+
+it("is context sensitive", () => {
+	expect(
+		extractSpeechLines(
+			"Speaking [LangChangeCommand ('en'), 'clickable', 'main landmark', 'button', 'Choose time, selected time is 12:00 AM']"
+		)
+	).toMatchInlineSnapshot(`
+		Array [
+		  Array [
+		    "clickable",
+		    "main landmark",
+		    "button",
+		    "Choose time, selected time is 12:00 AM",
 		  ],
 		]
 	`);
