@@ -1,5 +1,15 @@
 # screen-reader-testing-library
 
+## 0.0.7
+
+### Patch Changes
+
+- [`794e233`](https://github.com/eps1lon/screen-reader-testing-library/commit/794e233f78a4ac527ec3e9051668f36f25f20425) [#23](https://github.com/eps1lon/screen-reader-testing-library/pull/23) Thanks [@eps1lon](https://github.com/eps1lon)! - Add support for node 16
+
+  Previously installs using node 16 would fail the engines check.
+
+* [`67eb084`](https://github.com/eps1lon/screen-reader-testing-library/commit/67eb0841a66497ca792b7c2edf75057ece0b0d48) [#25](https://github.com/eps1lon/screen-reader-testing-library/pull/25) Thanks [@eps1lon](https://github.com/eps1lon)! - Bump nvda to 2020.4 from 2020.3
+
 ## 0.0.6
 
 ### Patch Changes
