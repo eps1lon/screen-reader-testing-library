@@ -1,5 +1,14 @@
 # screen-reader-testing-library
 
+## 0.0.8
+
+### Patch Changes
+
+- [#26](https://github.com/eps1lon/screen-reader-testing-library/pull/26) [`2c39190`](https://github.com/eps1lon/screen-reader-testing-library/commit/2c39190becbad65891fac4ecae43b2b6cffd82c8) Thanks [@eps1lon](https://github.com/eps1lon)! - Speech containing a comma is no longer truncated
+
+  For example, `Choose time, selected time is ...` previously resulted in `["Choose tim"]`.
+  The previous speech parser only used a regular expression which cannot handle context-sensitive languages.
+
 ## 0.0.7
 
 ### Patch Changes
