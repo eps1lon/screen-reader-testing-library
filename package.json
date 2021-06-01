@@ -20,7 +20,7 @@
 	"devDependencies": {
 		"@changesets/changelog-github": "^0.4.0",
 		"@changesets/cli": "^2.16.0",
-		"jest": "^26.4.2",
+		"jest": "^27.0.3",
 		"prettier": "^2.3.0",
 		"typescript": "^4.3.2"
 	},
