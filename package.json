@@ -21,7 +21,7 @@
 		"@changesets/changelog-github": "^0.4.0",
 		"@changesets/cli": "^2.16.0",
 		"jest": "^26.4.2",
-		"prettier": "^2.3.0",
+		"prettier": "^2.3.2",
 		"typescript": "^4.3.2"
 	},
 	"prettier": {
