@@ -6,7 +6,7 @@
 	"labels": ["dependencies"],
 	"prConcurrentLimit": 30,
 	"prHourlyLimit": 0,
-	"schedule": "on monday before 6:00am",
+	"schedule": "before 6:00am on the first day of the month",
 	"timezone": "UTC",
 	"packageRules": [
 		{
