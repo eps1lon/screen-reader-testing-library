@@ -29,7 +29,7 @@
 		"url": "https://solverfox.dev"
 	},
 	"devDependencies": {
-		"@types/fs-extra": "9.0.11",
+		"@types/fs-extra": "9.0.12",
 		"@types/proper-lockfile": "4.1.1"
 	}
 }
