@@ -73,7 +73,7 @@ jobs:
           & $NVDA_BIN -logFilePath $Env:LOG_FILE_PATH
           yarn jest -c $REPO_PATH\examples\jest\jest.config.js
           & $NVDA_BIN -quit
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         if: ${{ always() }}
         with:
           name: nvda.log
