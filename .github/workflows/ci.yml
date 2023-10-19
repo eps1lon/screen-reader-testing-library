@@ -19,7 +19,7 @@ jobs:
       SRTL_DEV: true
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Use node@12
         uses: actions/setup-node@v2
         with:
