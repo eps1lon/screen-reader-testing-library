@@ -1559,10 +1559,10 @@
   resolved "https://registry.yarnpkg.com/@types/prettier/-/prettier-2.1.0.tgz#5f96562c1075ee715a5b138f0b7f591c1f40f6b8"
   integrity sha512-hiYA88aHiEIgDmeKlsyVsuQdcFn3Z2VuFd/Xm/HCnGnPD8UFU5BM128uzzRVVGEzKDKYUrRsRH9S2o+NUy/3IA==
 
-"@types/proper-lockfile@4.1.2":
-  version "4.1.2"
-  resolved "https://registry.yarnpkg.com/@types/proper-lockfile/-/proper-lockfile-4.1.2.tgz#49537cee7134055ee13a1833b76a1c298f39bb26"
-  integrity sha512-kd4LMvcnpYkspDcp7rmXKedn8iJSCoa331zRRamUp5oanKt/CefbEGPQP7G89enz7sKD4bvsr8mHSsC8j5WOvA==
+"@types/proper-lockfile@4.1.4":
+  version "4.1.4"
+  resolved "https://registry.yarnpkg.com/@types/proper-lockfile/-/proper-lockfile-4.1.4.tgz#cd9fab92bdb04730c1ada542c356f03620f84008"
+  integrity sha512-uo2ABllncSqg9F1D4nugVl9v93RmjxF6LJzQLMLDdPaXCUIDPeOJ21Gbqi43xNKzBi/WQ0Q0dICqufzQbMjipQ==
   dependencies:
     "@types/retry" "*"
 
