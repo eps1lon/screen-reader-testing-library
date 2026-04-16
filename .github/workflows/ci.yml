@@ -98,7 +98,7 @@ jobs:
       - name: Setup Node.js 12.x
         uses: actions/setup-node@master
         with:
-          node-version: 12.x
+          node-version: 24.x
 
       - name: Install Dependencies
         run: yarn
